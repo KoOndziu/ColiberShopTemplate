@@ -1,0 +1,198 @@
+body > header {
+	position: sticky;
+	top: 0;
+	z-index: 90;
+	background: var(--color-bcgr);
+	
+	a {
+		color: inherit;
+	}
+	
+  .header-banner {
+    max-width: var(--size-body);
+    text-align: center;
+    background-color: black;
+  }
+
+  .header-top {
+		position: relative; // !IMPORTANT for menu!
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+		@include content;
+
+    > div {
+      display: flex;
+			flex-wrap: wrap;
+      flex-grow: 1;
+    }
+    
+    .header-logo {
+			order: 1;
+			a.logo {
+				display: flex;
+			}
+      img {
+				margin: var(--size-pdng);
+				max-width: 120px;
+      }
+    }
+		
+		.header-nav {
+      order: 2;
+			flex-grow: 100;
+			max-width: 70%;
+			
+			.menu-images-container {
+				display: none;
+			}
+    }
+
+    .header-shortcuts {
+      padding: 1rem 0;
+			order: 3;
+      justify-content: flex-end;
+			align-items: center;
+			
+			.hamburger-menu,
+			.start-page,
+			.search-mobile {
+				display: none;
+			}
+			
+			.start-page {
+				color: #a9def1;
+			}
+    }
+  }
+  
+  aside.notifications {
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 100;
+  
+    ul {
+      max-width: 100%;
+      width: 400px;
+      margin: 0;
+      padding: 1rem;
+
+      li {        
+        > div {
+          padding: var(--size-pdng-side);
+          position: relative;
+          overflow: hidden;
+          background: var(--color-frst);
+          border-radius: var(--border-radius);
+          
+          &::before {
+            content: "";
+            width: 100%;
+            height: .1em;
+            display: block;
+            position: absolute;
+            top: 0; left: 0;
+            border-radius: var(--border-radius);
+            animation: close-notification-time 5s linear forwards;
+          }
+          
+          button[class*='icon-'] {
+            margin-left: auto !important;
+          }
+        }      
+
+        & {
+          max-height: 500px;
+          position: relative;
+          overflow: hidden;
+          box-sizing: border-box;
+          animation: close-notification 3s forwards;
+          animation-delay: 5s;
+          
+          &.notification-danger { div:before { background: #f9c3c2; } }
+          &.notification-warning { div:before { background: #fbe8c0; } }
+          &.notification-success { div:before { background: #c2f0e6; } }
+          &.notification-info { div:before { background: var(--color-scnd); } } 
+          
+          &.close > div::before {
+            animation-delay: 0s;
+          }
+          
+          @for $i from 0 through 9 {
+            &:nth-child(#{$i+1}n) {
+              animation-delay: #{$i * 3 + $i * 5 + 5}s;
+              div::before {
+                animation-delay: #{$i * 5 + $i * 3}s;
+              }
+            } 
+          }
+        }
+      }
+      
+      &:hover {
+        li, li div::before {
+          animation-play-state: paused;
+        }
+      }
+    }
+
+    @keyframes close-notification {
+      0%   { opacity: 0; max-height: 0; }
+      0.1% { opacity: 1; max-height: 500px; }
+      60%  { opacity: 1; }
+      80%  { opacity: 0; }
+      100% { opacity: 0; max-height: 0; }
+    }
+    
+    @keyframes close-notification-time {
+      0%   { width: 100%; }
+      100% { width: 0; }
+    }
+  }
+}
+
+@media screen and (min-width: $brkp-s-devices) and (max-width: $brkp-m-devices) {
+  body > header {
+    .header-top {			
+      .header-shortcuts {
+        order: 1;
+        justify-content: space-between;
+        flex: 1;
+
+        .hamburger-menu,
+        .start-page {
+          display: block;
+        }
+      }
+
+      .header-logo,
+      .header-nav {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $brkp-s-devices) {
+	body > header {
+		.header-top {
+			.header-shortcuts {
+				order: 1;
+				justify-content: space-between;
+        
+        .hamburger-menu,
+        .start-page,
+        .search-mobile {
+          display: block;
+        }
+			}
+			
+			.header-logo,
+			.header-nav,
+			.search-desktop {
+				display: none;
+			}
+		}
+	}
+}

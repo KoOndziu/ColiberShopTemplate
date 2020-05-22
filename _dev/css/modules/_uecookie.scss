@@ -1,0 +1,37 @@
+#cookieNotice {
+  
+  width: 100vw;
+  text-align: center;
+  background: var(--color-frst);
+  
+  &.fixed{
+    position: fixed;
+    z-index: 1001;
+    left: 0px;
+    &.fixed-top { top: 0; }
+    &.fixed-bottom { bottom: 0; }
+    
+    background: var(--color-bcgr);
+    border-top: solid 1px var(--color-brdr);
+    border-bottom: solid 1px var(--color-brdr);
+  }
+  
+  .cookieNoticeContainer {
+    display: flex;
+    &.row { flex-direction: row; }
+    &.row-reverse  { flex-direction: row-reverse; } 
+    &.column-reverse  { flex-direction: column-reverse; }
+    align-items: center;
+   
+    div {
+      margin: 1rem;
+    }
+    p {
+      text-align: justify;
+    }
+  }
+  
+  .cookieCloseButton {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,18 @@
+[class*='icon-'].extender {
+	margin: 1rem 0;
+	display: block;
+	text-align: center;
+
+	&::before {
+		width: fit-content;
+		margin: 0 auto 1rem;
+		padding: 3rem !important; 
+		display: block;
+		background: var(--color-frst); 
+		border-radius: 50%;
+	}
+  
+  > *:last-child {
+    color: var(--color-brdr);
+  }
+}

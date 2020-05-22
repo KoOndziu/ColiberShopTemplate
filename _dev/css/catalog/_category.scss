@@ -1,0 +1,33 @@
+.category-header {
+	position: relative;
+  text-align: justify;
+	overflow: auto;
+	
+	&.cover-exist {
+	
+		> .category-cover {
+			content: '';
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: absolute;
+			top: 0; left: 0;
+			z-index: -1;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+
+			&::before {
+				content: '';
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0; left: 0;
+				z-index: 1;
+				background: var(--color-alph);
+			}
+		}
+  }
+}

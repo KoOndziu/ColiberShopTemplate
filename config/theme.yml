@@ -1,0 +1,88 @@
+name: KoliberShop
+display_name: Koliber Shop
+version: 1.0.0
+author:
+  name: "Konrad Kubala"
+  email: "000konrad000@gmail.com"
+  url: "https://facebook.com/KoOndziu97"
+
+meta:
+  compatibility:
+      from: 1.7.2.0
+      to: ~
+
+  available_layouts:
+    layout-full:
+      name: Full width
+      description: No top aside, ideal for distraction-free pages such as product pages.
+
+global_settings:
+  configuration:
+    PS_QUICK_VIEW: false
+    
+  modules:
+    to_reset:
+      - ps_emailalerts
+
+  hooks:
+    custom_hooks:
+      - name: displayFooterBefore
+        title: displayFooterBefore
+        description: Add a widget area above the footer
+    modules_to_hook:
+      displayNav:
+        - ps_languageselector
+        - ps_customersignin
+        - ps_shoppingcart
+      displayCurrencySelector:
+        - ps_currencyselector
+      displayTop:
+        - ps_mainmenu
+      displayHomeAside:
+        - ps_imageslider
+      displayHome:
+        - ps_featuredproducts
+        - ps_newproducts
+        - ps_bestsellers
+        - ps_specials
+        - ps_viewedproduct
+        - ps_banner
+        - ps_emailsubscription
+      displayFooter:
+        - ps_contactinfo
+        - ps_linklist
+      displayShare:
+        - ps_sharebuttons
+
+  image_types:
+    cart_default:
+      width: 80
+      height: 80
+      scope: [products]
+    small_default:
+      width: 300
+      height: 300
+      scope: [products]
+    medium_default:
+      width: 500
+      height: 500
+      scope: [products, categories, manufacturers, suppliers]
+    large_default:
+      width: 1920
+      height: 1080
+      scope: [products, categories, manufacturers, suppliers]
+    category_default:
+      width: 1920
+      height: 1080
+      scope: [categories]
+    home_default:
+      width: 1080
+      height: 1080
+      scope: [products]
+    stores_default:
+      width: 170
+      height: 115
+      scope: [stores]
+
+theme_settings:
+  default_layout: layout-full

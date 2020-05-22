@@ -1,0 +1,31 @@
+.pagination {
+	.pagination_summary {
+		width: 120px;
+		height: 120px;
+		margin: 2rem auto 1rem;
+		padding: 40px;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: nowrap;
+		border-radius: 50%;
+		text-align: center;
+		
+		span {
+			display: block;
+		}
+	}
+  ul {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    
+    li {
+			margin: .4rem;
+      a {padding: 0;}
+    }
+  }
+}

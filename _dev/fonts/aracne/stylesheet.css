@@ -1,0 +1,92 @@
+/*
+
+@font-face {
+    font-family: 'Aracne';
+    src: url('AracneRegular.woff2') format('woff2'),
+        url('AracneRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aracne';
+    src: url('AracneRegularItalic.woff2') format('woff2'),
+        url('AracneRegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Aracne';
+    src: url('AracneLight.woff2') format('woff2'),
+        url('AracneLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aracne';
+    src: url('AracneLightItalic.woff2') format('woff2'),
+        url('AracneLightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+
+@font-face {
+    font-family: 'Aracne Condensed';
+    src: url('AracneCondensedRegular.woff2') format('woff2'),
+        url('AracneCondensedRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aracne Condensed';
+    src: url('AracneCondensedRegularItalic.woff2') format('woff2'),
+        url('AracneCondensedRegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Aracne Condensed';
+    src: url('AracneCondensedLight.woff2') format('woff2'),
+        url('AracneCondensedLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aracne Condensed';
+    src: url('AracneCondensedLightItalic.woff2') format('woff2'),
+        url('AracneCondensedLightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+*/
+
+@font-face {
+    font-family: 'Aracne Ultra Condensed';
+    src: url('AracneUltraCondensedRegular.woff2') format('woff2'),
+        url('AracneUltraCondensedRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}/*
+@font-face {
+    font-family: 'Aracne Ultra Condensed';
+    src: url('AracneUltraCondensedRegItalic.woff2') format('woff2'),
+        url('AracneUltraCondensedRegItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Aracne Ultra Condensed';
+    src: url('AracneUltraCondensedLight.woff2') format('woff2'),
+        url('AracneUltraCondensedLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aracne Ultra Condensed';
+    src: url('AracneUltraCondensedLightItalic.woff2') format('woff2'),
+        url('AracneUltraCondensedLightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}*/

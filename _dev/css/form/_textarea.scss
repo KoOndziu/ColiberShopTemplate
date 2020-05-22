@@ -1,0 +1,13 @@
+textarea {
+  @include no-appearance;
+  
+  width: 100%;
+  margin: .2rem 0;
+  padding: .4rem;
+  box-sizing: border-box;
+  display: inline-block;
+  border-color: var(--color-dsbl);
+  border-style: solid;
+  border-radius: var(--border-radius);
+  background: transparent;
+}

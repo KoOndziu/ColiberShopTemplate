@@ -1,0 +1,33 @@
+.is--loading {
+  position: relative;
+  
+  > * {
+    opacity: .1;
+  }
+
+  &:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    margin-left: -.5rem;
+    opacity: 1;
+  }
+}
+.is--loading:before,
+.faceted-overlay .spinner {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 50% !important;
+  border-style: none !important;
+  border-top: solid 1px var(--color-font) !important;
+  border-right: solid 1px var(--color-font) !important;
+  border-bottom: solid 1px transparent !important;
+  animation: spinner 1s infinite linear !important;
+}
+
+.faceted-overlay {
+  background: var(--color-alph) !important;
+  transition: background .5s;
+}

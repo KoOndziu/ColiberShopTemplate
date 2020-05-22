@@ -1,0 +1,83 @@
+:root {  
+	--border-radius: 3px;
+	--scroll-width: 15px;
+  --shadow-first: 0px 0px 15px -5px var(--color-alph);
+  --shadow-bottom: 0 15px 25px -15px var(--color-alph);
+  --shadow: 0 1px 2px var(--color-alph);
+	
+	// sizes
+	--size-body: 1110px;
+  --size-grid-gap: 1rem;
+  --size-chck: 1rem;
+  --size-chck-pdng: 2px;
+	--size-pdng: .5rem;
+	--size-pdng-side: calc(var(--size-pdng) * 2);
+	
+	// colors
+  --color-blck: #222;
+  --color-whte: #ddd;
+	& {
+		--color-bcgr: #fff;
+		--color-frst: #f2f2f2;
+		--color-scnd: #ddd;
+		--color-brdr: #aaa;
+		--color-dsbl: #bbb;
+		--color-font: #222;
+		--color-zero: rgba(221,221,221,0);   // #ddd0 rgba for EDGE18.
+		--color-alph: rgba(221,221,221,.93); // #ddde rgba for EDGE18.
+		
+	}
+	&.dark-mode {
+		--color-bcgr: #222;
+		--color-frst: #1b1b1b;
+		--color-scnd: #111;
+		--color-brdr: #999;
+		--color-dsbl: #666;
+		--color-font: #ddd;
+		--color-zero: rgba(68,68,68,0);   // #4440 rgba for EDGE18.
+		--color-alph: rgba(68,68,68,.93); // #444e rgba for EDGE18.
+	}
+}
+
+.background--light {
+	color: #222;
+}
+.background--dark {
+	color: #ddd;
+}
+
+// breakpoints
+$brkp-s-devices: 576px;
+$brkp-m-devices: 768px;
+$brkp-l-devices: 992px;
+$brkp-x-devices: 1200px;
+
+// mixins
+@mixin content {  
+  max-width: var(--size-body);
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto; 
+	padding-left: 2rem;
+	padding-right: 2rem;
+	box-sizing: border-box;
+}
+
+@mixin no-appearance {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      -ms-appearance: none;
+          appearance: none;
+             outline: none;
+}
+
+@mixin no-select {
+  -webkit-tap-highlight-color: transparent; /* Android */
+    -webkit-touch-callout: none !important; /* iOS Safari */
+      -webkit-user-select: none !important; /* Safari */
+       -khtml-user-select: none !important; /* Konqueror HTML */
+         -moz-user-select: none !important; /* Old versions of Firefox */
+          -ms-user-select: none !important; /* Internet Explorer/Edge */
+              user-select: none !important; /* Non-prefixed version, currently
+                                             supported by Chrome, Opera and Firefox */
+}

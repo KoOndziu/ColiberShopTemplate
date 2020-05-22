@@ -1,0 +1,27 @@
+dl.totals {
+	max-width: 400px;
+
+	dt {
+		padding-left: 1rem;
+	}
+	dd {
+		padding-right: 1rem;
+		text-align: right;
+	}
+	
+	dt, 
+	dd {
+		border: none;
+	}
+	
+	.total {
+		background: var(--color-frst);
+		&.label { border-radius: var(--border-radius) 0 0 var(--border-radius); }
+		&.value { border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+	}
+	
+	.tax {
+		&.label,
+		&.value { order: 999999; }
+	}
+}

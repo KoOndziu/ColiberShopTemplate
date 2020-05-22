@@ -1,0 +1,24 @@
+@mixin flag-icon($country) {
+  .flag-icon-#{$country}-before::before {
+		content: " ";
+		width: 1em;
+    display: inline-block;
+		box-sizing: border-box;
+		background-image: url(/themes/KoliberShop/assets/flags/#{$flag-icon-square-path}/#{$country}.svg);
+		background-size: contain;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		border: solid 1px currentColor;
+		line-height: 1em;
+		vertical-align: middle;
+		&.flag-icon-rect {
+			width: 1em;
+      background-image: url(/themes/KoliberShop/assets/flags/#{$flag-icon-rect-path}/#{$country}.svg);
+    }
+  }
+	.flag-icon-#{$country} {
+		background-image: url(/themes/KoliberShop/assets/flags/#{$flag-icon-square-path}/#{$country}.svg);
+		background-size: cover;
+		background-repeat: no-repeat;
+  }
+}

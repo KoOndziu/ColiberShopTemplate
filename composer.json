@@ -1,0 +1,18 @@
+{
+    "name": "Ko_Ondziu/KoliberShop",
+    "description": "KoliberShop theme",
+    "homepage": "",
+    "license": "AFL-3.0",
+    "authors": [
+        {
+            "name": "Ko_Ondziu",
+            "email": "https://www.facebook.com/KoOndziu97/"
+        }
+    ],
+    "require": {},
+    "config": {
+        "preferred-install": "dist"
+    },
+    "type": "prestashop-theme",
+    "author": "KoliberShop"
+}

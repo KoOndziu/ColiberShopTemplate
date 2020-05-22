@@ -1,0 +1,24 @@
+dl {
+	margin: 1rem auto;
+  max-width: 100%;
+  display: grid;
+  //grid-template: auto / 10em auto; // Chwilowo zakomentowane bo lepiej wygląda w sekcji użytkownika i koszyku.
+  
+  dt { 
+		grid-column: 1; 
+		padding: .5rem 0;
+		word-break: break-word;
+	}
+  dd { 
+		grid-column: 2;
+		padding: .5rem 0 .5rem .5rem;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		word-break: break-word;
+	}
+  
+  dt:not(:first-of-type), dd:not(:first-of-type) {
+    border-top: solid 1px var(--color-brdr);
+  }
+}

@@ -1,0 +1,33 @@
+ul {
+	list-style-type: circle;
+	
+  li[class*="icon"],
+  &[class*="icon"] {
+    list-style-type: none;
+  }
+  
+  &[class*="icon"]::before {
+    float: left;
+  }
+}
+
+[tabindex="-1"] {
+	outline: none;
+}
+
+img {
+	filter: brightness(97%);
+  transition: filter .5s;
+  
+  &.lazyload {
+    //filter: brightness(95%) blur(20px);
+    visibility: hidden;
+  }
+  &.lazyloading {
+    //filter: brightness(95%) blur(20px);
+    visibility: hidden;
+  }
+  &.lazyloaded {
+    //filter: brightness(95%) blur(0);
+  }
+}

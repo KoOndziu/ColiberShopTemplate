@@ -1,0 +1,37 @@
+.messages {
+	article {
+		max-width: 70%;
+		width: max-content;
+		margin: var(--size-pdng) auto;
+		.message {
+			padding: var(--size-pdng) var(--size-pdng-side);
+			border-radius: var(--border-radius);
+		}
+		small {
+			padding: .5em var(--border-radius);
+			color: var(--color-brdr);
+			display: flex;
+			justify-content: space-between;
+			.date {
+				margin-left: auto;
+			}
+		}
+		
+		&.employee {
+			margin-left: 0;
+			.message {
+				background: var(--color-scnd);
+			}
+		}
+		&.customer {
+			margin-right: 0;
+			.message {
+				background: var(--color-frst);
+				text-align: right;
+			}
+			small {
+				display: none;
+			}
+		}
+	}
+}

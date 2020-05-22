@@ -1,0 +1,66 @@
+@mixin fix-autofill {
+	background-color: transparent !important;
+	transition: background-color 99999999999999s ease-in-out 0s;
+  box-shadow: 100px 100px inset var(--color-bcgr);
+	-webkit-text-fill-color: var(--color-font) !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+}
+
+input[type=text], 
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=url],
+input[type=date], 
+input[type=month],
+input[type=week],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local],
+.input-text {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  outline: none;
+  
+  margin: .2rem 0;
+  padding: .5rem 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background: transparent;
+  border-width: 1px;
+  border-color: var(--color-brdr);
+  border-style: none none solid;
+  font-size: 1rem;
+	
+	&:-webkit-autofill { @include fix-autofill }
+	&:-internal-autofill-selected { @include fix-autofill }
+	&:-internal-autofill-previewed { @include fix-autofill }
+		
+	&:hover {	
+		border-color: var(--color-font);
+	}
+	&:focus{	
+		border-color: var(--color-font);
+	}
+	&:active {
+		border-color: var(--color-font);
+	}
+	&:disabled {
+		border-color: var(--color-dsbl);
+	}
+}
+
+.input-text {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	> input,
+	> textarea {
+    margin: 0;
+		flex: 1;
+		border: none;
+	}
+}

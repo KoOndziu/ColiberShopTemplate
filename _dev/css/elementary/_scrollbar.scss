@@ -1,0 +1,27 @@
+::-webkit-scrollbar {
+	width: .5rem;
+}
+::-webkit-scrollbar-track {
+  background: none;
+  border-radius: .5rem;
+  
+  &:hover  { background-color: var(--color-alph); }
+	&:focus  { background-color: var(--color-alph); }
+	&:active { background-color: var(--color-alph); }
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-brdr); 
+  background-clip: padding-box;
+	border-radius: .5rem;
+  border: solid 2px transparent;
+	
+	&:hover  { background-color: var(--color-font); border: none; }
+	&:focus  { background-color: var(--color-font); border: none; }
+	&:active { background-color: var(--color-font); border: none; }
+}
+
+body {
+  overflow-x: hidden;
+	overflow-y: overlay;
+}
+

@@ -1,0 +1,8 @@
+@keyframes hourglass { 
+  20%  { transform: rotate(180deg); }
+  100%  { transform: rotate(180deg); }
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}

@@ -1,0 +1,26 @@
+ul.notifications {
+  max-width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	text-align: left;
+	
+	li {
+    > div {
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: flex-start;
+      
+      
+      [class*='icon-']:first-child::before {
+        margin-right: var(--size-pdng-side);
+      }
+      [class*='icon-']:last-child::before {
+        margin-left: var(--size-pdng-side);
+      }
+    }
+	}
+	
+}

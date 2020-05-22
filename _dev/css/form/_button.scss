@@ -1,0 +1,120 @@
+@mixin button {
+  @include no-appearance;
+  @include no-select;
+
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+  max-width: 100%;
+  margin: .2rem .4rem .4rem 0;
+  padding: var(--size-pdng) var(--size-pdng-side);
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  border: solid 1px;
+	border-color: var(--color-font);
+  border-radius: var(--border-radius);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+	transition: top .1s;
+  &:last-child { margin-right: 0; }
+	
+  &:not(:empty) {
+    &:before {
+      vertical-align: baseline;
+    }
+    &:hover {	
+      background-color: var(--color-font);
+      border-color: var(--color-font);
+      color: var(--color-bcgr);
+    }
+    &:focus{	
+      background-color: var(--color-font);
+      border-color: var(--color-font);
+      color: var(--color-bcgr);
+    }
+    &.disabled,
+    &:disabled {
+      margin: .2rem .4rem .4rem 0;
+      cursor: not-allowed;
+      background: var(--color-dsbl);
+      border-color: var(--color-dsbl);
+      color: var(--color-bcgr);
+    }
+    &:active:not(.disabled):not(:disabled) {
+      margin-top: .4rem;
+      margin-bottom: .2rem;
+      background: var(--color-font);
+      border-color: var(--color-font);
+      color: var(--color-bcgr);
+    }
+    &:focus:not(:active):not(:disabled):not(.disabled):before {
+      content: "\e018";
+      animation: hourglass 2s linear infinite;
+    }
+  }
+  
+  &:empty {    
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    
+    &:before {
+      margin: 1px;
+      padding: calc(var(--size-pdng) - 1px);
+      border-radius: 50%;
+      transition: background .2s, color .2s;
+    }
+    
+    &:hover {
+      &:before {
+        background: var(--color-font);
+        color: var(--color-bcgr);
+      }
+    }
+    &.disabled,
+    &:disabled {
+      color: var(--color-dsbl);
+    }
+    &:active:not(.disabled):not(:disabled) {
+      color: var(--color-font);
+    }
+  }
+}
+
+input[type=button],
+input[type=reset],
+button,
+.button {
+	@include button;
+}
+
+input[type=submit],
+button[type=submit],
+.submit {
+	@include button;
+	grid-column: 1 / 3;
+	background: var(--color-font);
+	color: var(--color-bcgr);
+	border: none;
+}
+
+input[type=file] {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  
+  outline: none;
+  min-width: 9rem;
+  max-width: 100%;
+  text-transform: none;
+	
+	&::-webkit-file-upload-button {
+		@include button;
+	}
+}

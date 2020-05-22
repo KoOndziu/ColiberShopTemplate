@@ -1,0 +1,43 @@
+html {
+  height: 100%;
+	position: relative;
+  z-index: -2;
+  font-family: "Didact Gothic", Helvetica, sans-serif;
+  font-size: 16px;
+	color: var(--color-font);
+}
+
+body {
+	min-height: 100vh;
+  position: relative;
+  z-index: -2;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bcgr);
+	overflow-y: scroll;
+  overflow-x: hidden;
+
+	.content {
+    @include content;
+  }
+	
+  > header {}
+
+  > aside {
+    max-width: 100%;
+    background: var(--color-frst);
+  }
+  
+  > main {
+		padding-bottom: 5rem;
+    > aside {
+      background: var(--color-frst);
+    }
+  }
+
+  > footer {
+		margin-top: auto;
+    background: var(--color-frst);
+  }
+	
+}

@@ -1,0 +1,14 @@
+.set {
+	margin: 1rem auto;
+	padding: 1rem;
+	background: var(--color-frst) !important;
+	border-radius: var(--border-radius);
+	color: var(--color-font) !important;
+	
+	> *:first-child {
+		margin-top: 0;
+	}
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}

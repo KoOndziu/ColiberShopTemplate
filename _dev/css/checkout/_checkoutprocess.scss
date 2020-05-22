@@ -1,0 +1,52 @@
+#checkout-process {  
+	> section {
+    display: inline-block;
+    width: 100%;
+    
+    > header.h2 {
+      margin-bottom: 0;
+    }
+    &.-unreachable {
+      .edit-icon {
+        display: none;
+      }
+    }
+    
+    > .step-content,
+    > .step-content-summary {
+      overflow-y: hidden;
+      max-height: 0;
+      transition-property: all;
+      transition-duration: .5s;
+      transition-timing-function: easy-out;
+    }
+    &:not(.-unreachable) > .step-content-summary {
+      overflow-y: hidden;
+      max-height: 5000px;
+      transition-property: all;
+      transition-duration: .5s;
+      transition-timing-function: easy-in;
+    }
+
+    &.-current { 
+      > .step-content {
+        max-height: 5000px;
+        transition-timing-function: easy-in;
+      }
+      > .step-content-summary {
+        max-height: 0;
+        transition-timing-function: easy-out;
+      }
+    }
+
+    #payment-confirmation {
+      div {
+        text-align: center;
+      }
+    }
+
+    #gift {
+      display: none;
+    }
+  }
+}

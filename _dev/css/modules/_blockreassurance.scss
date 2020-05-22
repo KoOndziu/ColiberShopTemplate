@@ -1,0 +1,22 @@
+#block-reassurance {
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    list-style: none;
+    
+    li {
+      margin: 2px;
+      padding: var(--size-pdng);
+      background: var(--color-frst);
+      border-radius: var(--border-radius);
+    }
+  }
+  
+  img {
+    height: 1.2rem;
+    padding: .2rem;
+    vertical-align: middle;
+  }
+}

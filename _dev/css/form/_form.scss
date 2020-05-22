@@ -1,0 +1,145 @@
+form {
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 1rem;
+  align-items: center;
+  vertical-align: top;
+  
+	&.form-normal {
+		display: block;
+	}
+	&.form-inline {
+		display: inline;
+		width: auto;
+	}
+	
+	ul {
+		margin: 0;
+	}
+	
+	header,
+	footer,
+	section {
+		grid-column: 1 / 3;
+	}
+	footer {
+		margin: 1rem auto;
+		text-align: center;
+	}
+  > section {
+		display: inherit;
+		grid-template: inherit;
+    grid-column-gap: inherit;
+	}
+	
+	span {
+    margin: .2rem 0;
+    grid-column: 2;
+  }
+	
+  > div,
+	> table,
+	> small,
+  h1, .h1,
+  h2, .h2,
+  h3, .h3, 
+  h4, .h4,
+  h5, .h5,
+  h6, .h6{
+    grid-column: 1 / 3;
+    grid-template: none;
+  }
+	
+	label {
+    vertical-align: middle;
+    grid-column: 1;
+  }
+  
+  textarea,
+  select,
+  input,
+	button,
+	.button,
+	a[class*=button],
+	input[type=button],
+	input[type=submit],
+	input[type=reset],
+	input[type=file] {
+    grid-column: 2;
+  }
+
+  fieldset {
+    width: 100%;
+    margin: .5rem 0;
+    padding: .4rem 1rem;
+    display: inline-block;
+    box-sizing: border-box;
+    border-style: solid;
+    border-radius: var(--border-radius);
+    
+    legend {
+    padding: 0 1rem;
+    font-size: 1.2em;
+    font-weight: 200;
+    text-align: left;
+    }
+  }
+  
+}
+
+@media screen and (max-width: $brkp-s-devices) {
+	form {
+    span {
+      grid-column: 1 / 3;
+    }
+	}
+}
+
+/* COLOR */
+
+input[type=color] {
+  height: auto;
+  margin: .2rem 0;
+  padding: 0;
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 16px;
+}
+
+input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type=color]::-webkit-color-swatch {
+  height: 10px;
+  width: auto;
+  margin: 2px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: none;
+  border-radius: 5px;
+}
+input[type=color]::-moz-color-swatch {
+  height: 10px;
+  width: auto;
+  margin: 2px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: none;
+  border-radius: 5px;
+}
+
+/* --- PLACEHOLDER ---------------------------------------------------------- */
+
+::-webkit-input-placeholder	{ color: var(--color-dsbl); }
+:-moz-placeholder           { color: var(--color-dsbl); }
+::-moz-placeholder          { color: var(--color-dsbl); }
+:-ms-input-placeholder      { color: var(--color-dsbl); }
