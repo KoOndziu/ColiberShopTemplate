@@ -130,3 +130,4 @@ Since your theme will live its own life, you cannot just cherry-pick a commit. Y
 ## Contributing
 
 Take a look at our [Contributing guide](CONTRIBUTING.md)
+
