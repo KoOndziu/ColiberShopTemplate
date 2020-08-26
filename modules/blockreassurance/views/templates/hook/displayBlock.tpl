@@ -25,7 +25,7 @@
           {/if}
         </div>
         <p class="block-title">{$block['title']}</p>
-        <p class="block-description">{$block['description'] nofilter}</p>
+        <p class="block-description">{$block['description']}</p>
       </div>
     {/foreach}
   </div>

@@ -44,8 +44,8 @@
 			 data-card-action="cardRegister"
 			 data-successCallback="registerCardInPanelSuccess"
 			 data-failureCallback="registerCardInPanelFailure"
-			 data-action-register-card-confirm="{$link->getModuleLink('przelewy24', 'ajaxRegisterCardConfirm', [], true)|escape:'html'}"
-			 data-action-register-card-form="{$link->getModuleLink('przelewy24', 'ajaxRegisterCardForm', [], true)|escape:'html'}">
+			 data-action-register-card-confirm="{$link->getModuleLink('przelewy24', 'ajaxRegisterCardConfirm', [], true)}"
+			 data-action-register-card-form="{$link->getModuleLink('przelewy24', 'ajaxRegisterCardForm', [], true)}">
 		<div class="p24-register-card-row">
 			<div id="p24-register-card-form" class="p24-register-card-form"></div>
 			<a 

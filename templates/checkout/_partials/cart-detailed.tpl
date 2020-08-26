@@ -57,8 +57,8 @@
 							<a
 								class="button delete-from-cart icon-trash"
 								data-action="deleteFromCart"
-								data-id-product="{$product.id_product|escape:'javascript'}"
-								data-id-product-attribute="{$product.id_product_attribute|escape:'javascript'}"
+								data-id-product="{$product.id_product|escape:'javascript':'UTF-8'}"
+								data-id-product-attribute="{$product.id_product_attribute|escape:'javascript':'UTF-8'}"
 								href="{$product.remove_from_cart_url}"
 								rel="nofollow"
 								title="{l s='Remove' d='Shop.Theme.Actions'}"
