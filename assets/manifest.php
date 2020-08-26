@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Generate manifest of Store
+ */
 header('Content-type: application/json');
 ?>
 {
