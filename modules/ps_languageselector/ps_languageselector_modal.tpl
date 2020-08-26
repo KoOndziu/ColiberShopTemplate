@@ -37,7 +37,7 @@
 			<li {if $language.id_lang == $current_language.id_lang} class="current" {/if}>
         <a href="{$link->getLanguageLink($language.id_lang)}" rel="nofollow">
           <input
-            class="radio-color flag-icon-{$language.language_code|regex_replace:"/.*-/":""}"
+            class="language-{$language.language_code|regex_replace:"/.*-/":""}"
             id="language-{$language.id_lang}"
             type="radio"
             name="language"
