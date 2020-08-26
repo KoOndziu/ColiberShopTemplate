@@ -2,11 +2,11 @@ textarea {
   @include no-appearance;
   
   width: 100%;
-  margin: .2rem 0;
-  padding: .4rem;
+  margin: var(--size-form-mrgn);
+  padding: var(--size-pdng) var(--size-pdng-side);
   box-sizing: border-box;
   display: inline-block;
-  border-color: var(--color-dsbl);
+  border-color: var(--color-brdr);
   border-style: solid;
   border-radius: var(--border-radius);
   background: transparent;

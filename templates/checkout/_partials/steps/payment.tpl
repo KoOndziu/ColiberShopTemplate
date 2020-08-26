@@ -8,9 +8,9 @@
   <div style="display:none" class="js-cart-payment-step-refresh"></div>
 
   {if !empty($display_transaction_updated_info)}
-  <p class="cart-payment-step-refreshed-info">
-    {l s='Transaction amount has been correctly updated' d='Shop.Theme.Checkout'}
-  </p>
+    <p class="cart-payment-step-refreshed-info">
+      {l s='Transaction amount has been correctly updated' d='Shop.Theme.Checkout'}
+    </p>
   {/if}
 
   {if $is_free}
@@ -22,15 +22,15 @@
 			{foreach from=$module_options item="option"}
 				<label for="{$option.id}">
 					<header>
-						<span class="h2">
-							{if $option.logo}
+						<span class="h2 payment-option-header">
+							{$option.call_to_action_text}
+              {if $option.logo}
 								<img 
-									style="margin-right: .2em; max-height: 2em; max-width: 2em; align-self: flex-start;" 
+                  class="bank-logo"
 									src="{$option.logo}" 
 									alt="{$option.call_to_action_text}"
 								>
 							{/if}
-							{$option.call_to_action_text}
 						</span>
 						<nav id="{$option.id}-container" class="payment-option clearfix">
 							
@@ -67,7 +67,7 @@
 							{$option.form nofilter}
 						{else}
 							<form 
-								id="payment-form" 
+								class="payment-form" 
 								method="POST" 
 								action="{$option.action nofilter}" 
 								style="display:none"
@@ -107,7 +107,7 @@
     </p>
 
     <form id="conditions-to-approve" class="form-normal" method="GET">
-      <ul class="list">
+      <ul class="list list-min-content">
         {foreach from=$conditions_to_approve item="condition" key="condition_name"}
           <li>
 						<input  id    = "conditions_to_approve[{$condition_name}]"
@@ -128,53 +128,40 @@
     </form>
   {/if}
 
-  <div id="payment-confirmation" class="list-min-content">
+  <form id="payment-confirmation">
 
-    <div class="ps-shown-by-js">
-			{include 
-				file='_partials/notifications.tpl' 
-				notifications=
-				[
-					"warning"=>
-					[
-						"{l 
-							s='Please check your order before payment' 
-							d='Shop.Theme.Checkout'
-						}.",
-						"js-alert-payment-conditions"=>{l
-							s='Please make sure you\'ve chosen a [1]payment method[/1] and accepted the [2]terms and conditions[/2].'
-							sprintf=[
-								'[1]' => '<a href="#checkout-payment-step">',
-								'[/1]' => '</a>',
-								'[2]' => '<a href="#conditions-to-approve">',
-								'[/2]' => '</a>'
-							]
-							d='Shop.Theme.Checkout'
-						}
-					]
-				]
-			}
-      <button type="submit" {if !$selected_payment_option} disabled {/if} class="icon-arrow-down-circle">
-        {l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}
-      </button>
-    </div>
-    <div class="ps-hidden-by-js">
-      {if $selected_payment_option and $all_conditions_approved}
-        <label for="pay-with-{$selected_payment_option}">{l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}</label>
-      {/if}
-    </div>
-  </div>
+    <footer>
+      <div class="ps-shown-by-js">
+        <button type="submit" {if !$selected_payment_option} disabled {/if} class="icon-arrow-down-circle">
+          {l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}
+        </button>
+
+        {if $show_final_summary}
+          <ul class="list list-min-content">
+            <li class="icon-exclamation">{l s='Please check your order before payment' d='Shop.Theme.Checkout'}</li>
+            <li class="icon-exclamation js-alert-payment-conditions"><span>{l
+                s='Please make sure you\'ve chosen a [1]payment method[/1] and accepted the [2]terms and conditions[/2].'
+                sprintf=[
+                  '[1]' => '<a href="#checkout-payment-step">',
+                  '[/1]' => '</a>',
+                  '[2]' => '<a href="#conditions-to-approve">',
+                  '[/2]' => '</a>'
+                ]
+                d='Shop.Theme.Checkout'
+              }</span>
+            </li>
+          </ul>
+        {/if}
+      </div>
+      <div class="ps-hidden-by-js">
+        {if $selected_payment_option and $all_conditions_approved}
+          <label for="pay-with-{$selected_payment_option}">{l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}</label>
+        {/if}
+      </div>
+    </footer>
+  </form>
 
   {hook h='displayPaymentByBinaries'}
 
-  <div class="modal fade" id="modal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <div class="js-modal-content"></div>
-      </div>
-    </div>
-  </div>
+  {include file='checkout/checkout-cms-modal.tpl'}
 {/block}

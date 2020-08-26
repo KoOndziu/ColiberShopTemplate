@@ -1,7 +1,11 @@
 {extends file='_partials/modal.tpl'}
 
 {block name='modal_attr'}
-  {assign var="modal" value=['id' => 'ps-shoppingcart-modal',	'data-refresh-url' => $refresh_url]}
+  {assign var="modal" value=[
+      'id' => 'ps-shoppingcart-modal',	
+      'data-refresh-url' => $refresh_url,
+			'class' => 'modal modal-right'
+  ]}
 {/block}
 
 {block name='modal_title'}

@@ -25,13 +25,22 @@
 {extends file='page.tpl'}
 
 {block name='page_title'}
-  {l s='Forgot your password?' d='Shop.Theme.Customeraccount'}
+  {l s='Reset your password' d='Shop.Theme.Customeraccount'}
 {/block}
 
-{block name='page_content_container'}{/block}
-
-{block name='page_footer'}
-  <ul>
-    <li><a href="{$urls.pages.authentication}">{l s='Back to Login' d='Shop.Theme.Actions'}</a></li>
-  </ul>
+{block name='page_content'}
+  <form class="password-form">
+    <header>
+      {foreach $successes as $success}
+        <p>{$success}</p>
+      {/foreach}
+    </header>
+    <footer>
+      <a 
+        class="button submit icon-action-undo"
+        href="{$urls.pages.authentication}"
+        >{l s='Back to Login' d='Shop.Theme.Actions'}
+      </a>
+    </footer>
+  </form>
 {/block}

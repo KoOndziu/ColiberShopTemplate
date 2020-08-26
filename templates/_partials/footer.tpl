@@ -26,23 +26,31 @@
   {hook h='displayFooterBefore'}
 {/block}
 
-<div class="content footer_content">
+<div class="content footer-grid">
   {block name='hook_footer'}
     {hook h='displayFooter'}
-  {/block}
-	
-	<p style="width: 100%;">
-		{block name='copyright_link'}
-			{l s='KoliberShop™ © %year%<br>by' sprintf=['%year%' => 'Y'|date] d='Shop.Theme.Global'} 
-			<a class="_blank" href="https://facebook.com/KoOndziu97" target="_blank">
-				Ko_Ondziu
-			</a>
-		{/block}
-	</p>
-	
-	<span class='button submit icon-bulb toggle-dark-mode' href="">Dark Mode</span>
+  {/block}	
 </div>
 
-{block name='hook_footer_after'}
-  {hook h='displayFooterAfter'}
-{/block}
+<div class="content footer-line">  
+  {block name='hook_footer_after'}
+    {hook h='displayFooterAfter'}
+  {/block}
+  
+  {block name='copyright_link'}
+    <div class="copyright-link">
+      <p>
+        {l s='KoliberShop © %year%<br>by' sprintf=['%year%' => 'Y'|date] d='Shop.Theme.Global'} 
+        <a class="_blank" href="https://facebook.com/KoOndziu97" target="_blank">Ko_Ondziu</a>
+      </p>
+    </div>
+  {/block}
+  
+  {block name='hook_footer_line'}
+    <div class="footer-line-hook">
+      {hook h='displayFooterLine'}
+    </div>
+  {/block}
+</div>
+
+

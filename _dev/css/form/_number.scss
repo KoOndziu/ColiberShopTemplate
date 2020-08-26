@@ -2,7 +2,7 @@ input[type=number] {
   @include no-appearance;
   
   width: 4rem;
-  margin: .2rem 0;
+  margin: var(--size-form-mrgn);
   padding: var(--size-pdng) var(--size-pdng) var(--size-pdng) var(--size-pdng-side);
   box-sizing: border-box;
   vertical-align: middle;
@@ -59,22 +59,9 @@ input[type=number] {
 	}
 	&:disabled {
 		border-color: var(--color-brdr);
-	}
-	
+  }
 }
 
 .bootstrap-touchspin {
-	input[type=number] {
-		max-width: 2rem;
-		margin: 0;
-		padding: 0;
-		background: transparent;
-		border: none;
-		text-align: center;
-
-		&::-webkit-outer-spin-button, 
-		&::-webkit-inner-spin-button {
-			display: none;
-		}
-	}
+  border: none !important;
 }

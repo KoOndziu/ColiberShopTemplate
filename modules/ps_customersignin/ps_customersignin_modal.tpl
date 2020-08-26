@@ -1,7 +1,10 @@
 {extends file='_partials/modal.tpl'}
 
 {block name='modal_attr'}
-	{assign var="modal" value=['id' => 'ps-customersignin-modal']}
+	{assign var="modal" value=[
+      'id' => 'ps-customersignin-modal',
+			'class' => 'modal modal-right'
+  ]}
 {/block}
 
 {block name='modal_title'}
@@ -14,7 +17,7 @@
 			{include file='customer/_partials/customer-info.tpl'}
 			{include file='customer/_partials/my-account-nav.tpl' list_type='list'}
 		{else}
-			<ul class="link-list list">
+			<ul class="list">
 				<li>
 					<a
 						class="icon-login"

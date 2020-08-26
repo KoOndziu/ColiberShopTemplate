@@ -1,3 +1,27 @@
+{**
+* 2007-2019 PrestaShop and Contributors
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License 3.0 (AFL-3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to https://www.prestashop.com for more information.
+*
+* @author    PrestaShop SA <contact@prestashop.com>
+* @copyright 2007-2019 PrestaShop SA and Contributors
+* @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+* International Registered Trademark & Property of PrestaShop SA
+*}
 {extends file=$layout}
 
 {block name='head_seo' prepend}
@@ -11,237 +35,97 @@
   <meta property="og:site_name" content="{$shop.name}">
   <meta property="og:description" content="{$page.meta.description}">
   <meta property="og:image" content="{$product.cover.large.url}">
-  <meta property="product:pretax_price:amount" content="{$product.price_tax_exc}">
-  <meta property="product:pretax_price:currency" content="{$currency.iso_code}">
-  <meta property="product:price:amount" content="{$product.price_amount}">
-  <meta property="product:price:currency" content="{$currency.iso_code}">
+  {if $product.show_price}
+    <meta property="product:pretax_price:amount" content="{$product.price_tax_exc}">
+    <meta property="product:pretax_price:currency" content="{$currency.iso_code}">
+    <meta property="product:price:amount" content="{$product.price_amount}">
+    <meta property="product:price:currency" content="{$currency.iso_code}">
+  {/if}
   {if isset($product.weight) && ($product.weight != 0)}
     <meta property="product:weight:value" content="{$product.weight}">
     <meta property="product:weight:units" content="{$product.weight_unit}">
   {/if}
 {/block}
 
-{block name='main'}
-  <main id="main" class="product">
+{block name='content'}
+  {block name='breadcrumb'}
+    <nav class="breadcrumb content">
+      {include file='_partials/breadcrumb.tpl'}
+    </nav>
+  {/block}
+
+  <main id="main" itemscope itemtype="https://schema.org/Product">
     <meta itemprop="url" content="{$product.url}">
 
-    {block name='product_activation'}
-      {include file='catalog/_partials/product-activation.tpl'}
-    {/block}
+    {block name='page_header_container'}
+      <header class="page-header product-header">
+        {block name='page_header'}
+          <div class="content">
+            <h1 itemprop="name">{block name='page_title'}{$product.name}{/block}</h1>
+          </div>
 
-    {block name='page_header'}
-      <header class="product-header">
-				
-				<div class="product-information content">
-					<h1 itemprop="name">{block name='page_title'}{$product.name}{/block}</h1>
+          {block name='product_cover_thumbnails'}
+            {include file='catalog/_partials/product-cover-thumbnails.tpl'}
+          {/block}
 
-					{block name='product_prices'}
-						{include file='catalog/_partials/product-prices.tpl'}
-					{/block}
-
-					{block name='product_description_short'}
-						<div 
-							class="product-description-short"
-							id="product-description-short" 
-							itemprop="description"
-							>{$product.description_short nofilter}
-						</div>
-					{/block}
-				</div>
-				
-				{block name='product_cover_thumbnails'}
-					{include file='catalog/_partials/product-cover-thumbnails.tpl'}
-				{/block}
-				
+          <!--{block name='product_flags'}
+            {include file='catalog/_partials/product-flags.tpl'}
+          {/block}-->
+        {/block}
       </header>
     {/block}
 
-    {block name='page_content'}
-			<section class="product-actions">
-				<div class="content">
+    {block name='page_content_container'}
+      <div class="page-content product-information content">
+        {block name='page_content'}
+          {block name='product_prices'}
+            {include file='catalog/_partials/product-prices.tpl'}
+          {/block}
+          
+          {block name='product_description_short'}
+            <div id="product-description-short-{$product.id}" itemprop="description">{$product.description_short nofilter}</div>
+          {/block}
 
-					{if $product.is_customizable && count($product.customizations.fields)}
-						{block name='product_customization'}
-							{include file='catalog/_partials/product-customization.tpl' customizations=$product.customizations}
-						{/block}
-					{/if}
+          {block name='product_customization'}
+            {include file="catalog/_partials/product-customization.tpl" customizations=$product.customizations}
+          {/block}
+          
+          {block name='product_add_to_cart'}
+            {include file='catalog/_partials/product-actions.tpl'}
+          {/block}
 
-					<form 
-						id="add-to-cart-or-refresh"
-						class="flex"
-						action="{$urls.pages.cart}" 
-						method="post"
-					>
-						<input type="hidden" name="token" value="{$static_token}">
-						<input type="hidden" name="id_product" value="{$product.id}" id="product_page_product_id">
-						<input type="hidden" name="id_customization" value="{$product.id_customization}" id="product_customization_id">
+          {block name='product_additional_info'}
+            {include file='catalog/_partials/product-additional-info.tpl'}
+          {/block}
 
-						{block name='product_variants'}
-							{include file='catalog/_partials/product-variants.tpl'}
-						{/block}
+          {block name='hook_display_reassurance'}
+            {hook h='displayReassurance-wylaczony'}
+          {/block}
 
-						{block name='product_add_to_cart'}
-							{include file='catalog/_partials/product-add-to-cart.tpl'}
-						{/block}
+          {block name='product_accordion'}
+            {include file='catalog/_partials/product-accordion.tpl'}
+          {/block}
 
-						{* Input to refresh product HTML removed, block kept for compatibility with themes *}
-						{block name='product_refresh'}{/block}
-					</form>
-
-					{block name='product_additional_info'}
-						{include file='catalog/_partials/product-additional-info.tpl'}
-					{/block}
-					
-				</div>
-			</section>
-			
-			<section class="product-share">
-				{hook h='displayShare' product=$product}
-			</section>
-			
-			<section 
-				id="tab-content"
-				class="product-tabs tabs tab-content content"   
-				data-product="{$product|json_encode}" 
-				role="tablist"
-			>
-
-				{if $product.description}
-					<input type="radio" id="description-tab" name="tabs" {if $product.description}checked{/if}>
-					<label for="description-tab">{l s='Description' d='Shop.Theme.Catalog'}</label>
-					<div role="tabpanel">
-
-						{block name='product_description'}
-							{if $product.description}
-								<section class="product-description">
-									{$product.description nofilter}
-								</section>
-							{/if}
-						{/block}
-
-					</div>
-				{/if}
-
-				{if 1}
-					<input type="radio" id="product-details-tab" name="tabs" {if !$product.description}checked{/if}>
-					<label for="product-details-tab">{l s='Product Details' d='Shop.Theme.Catalog'}</label>
-					<div role="tabpanel">
-
-						{block name='product_details'}
-							{include file='catalog/_partials/product-details.tpl'}
-						{/block}
-
-					</div>
-				{/if}
-
-				{if $product.attachments}
-					<input type="radio" id="attachments-tab" name="tabs">
-					<label for="attachments-tab" >{l s='Attachments' d='Shop.Theme.Catalog'}</label>
-					<div role="tabpanel">
-
-						{block name='product_attachments'}
-							{if $product.attachments}
-								<section class="product-attachments grid">
-									{foreach from=$product.attachments item=attachment}
-										<a 
-											class="attachment" 
-											href="{url entity='attachment' params=['id_attachment' => $attachment.id_attachment]}"
-										>
-											<header>
-												<span class="h2">{$attachment.name}</span>
-												<nav>
-													<button class="icon-cloud-download"></button>
-												</nav>
-											</header>
-											<p>
-												{$attachment.description}<br>
-												{$attachment.file_size_formatted}
-											</p>
-										</a>
-									{/foreach}
-								</section>
-							{/if}
-						{/block}
-
-					</div>
-				{/if}
-
-				{if $packItems}
-					<input type="radio" id="product-pack-tab" name="tabs">
-					<label for="product-pack-tab" >{l s='Pack content' d='Shop.Theme.Catalog'}</label>
-					<div role="tabpanel">
-
-						{block name='product_pack'}
-							{if $packItems}
-								<section class="product-pack">
-									<ul class="cart-overview">
-										{foreach from=$packItems item="product_pack"}
-											<li>
-												{include file='catalog/_partials/miniatures/product-line.tpl' product=$product_pack}
-												{block name='product_line_actions'}
-													<section class="product-actions">
-														<section class="product-description" style="display: none">
-															{$product.description_short nofilter}
-														</section>
-													</section>
-												{/block}
-											</li>
-										{/foreach}
-									</ul>
-								</section>
-							{/if}
-						{/block}
-
-					</div>
-				{/if}
-
-				{if $product.quantity_discounts}
-					<input type="radio" id="product-discounts-tab" name="tabs">
-					<label for="product-discounts-tab" >{l s='Volume discounts' d='Shop.Theme.Catalog'}</label>
-					<div role="tabpanel">
-
-						{block name='product_discounts'}
-							{include file='catalog/_partials/product-discounts.tpl'}
-						{/block}
-
-					</div>
-				{/if}
-
-				{foreach from=$product.extraContent item=extra key=extraKey}
-					<input type="radio" id="extra-{$extraKey}-tab" name="tabs">
-					<label for="extra-{$extraKey}-tab">{$extra.title}</label>
-					<div class="tab-pane fade in {$extra.attr.class}" id="extra-{$extraKey}" role="tabpanel" {foreach $extra.attr as $key => $val} {$key}="{$val}"{/foreach}>
-						{$extra.content nofilter}
-					</div>
-				{/foreach}
-
-			</section>
+          {block name='product_accessories'}
+            {include file='catalog/_partials/product-accessories.tpl'}
+          {/block}
+        {/block}
+      </div>
     {/block}
 
     {block name='page_footer_container'}
-      <footer class="page-footer content">
-				
-				{block name='product_accessories'}
-          {if $accessories}
-            <section class="product-accessories">
-              <h2>{l s='Accessories' d='Shop.Theme.Catalog'}</h2>
-							<div class="products">
-								{foreach from=$accessories item="product_accessory"}
-									{block name='product_miniature'}
-										{include file='catalog/_partials/miniatures/product.tpl' product=$product_accessory}
-									{/block}
-								{/foreach}
-							</div>
-            </section>
-          {/if}
+      <footer class="page-footer">
+        {block name='page_footer'}
+          {block name='product_footer'}
+            {hook h='displayFooterProduct' product=$product category=$category}
+          {/block}
+
+          {block name='product_images_modal'}
+            {include file='catalog/_partials/product-images-modal.tpl'}
+          {/block}
         {/block}
-				
-        {block name='product_footer'}
-          {hook h='displayFooterProduct' product=$product category=$category}
-        {/block}
-				
       </footer>
     {/block}
-    
+
   </main>
 {/block}

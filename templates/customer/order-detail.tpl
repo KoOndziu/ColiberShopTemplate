@@ -6,10 +6,6 @@
 
 {block name='page_content'}
 	
-	<section>
-		{$HOOK_DISPLAYORDERDETAIL nofilter}
-	</section>
-	
 	{block name='order_history'}
     <section id="order-history">
 			
@@ -32,6 +28,8 @@
 					{/if}
 				</ul>
 			</p>
+      
+      {$HOOK_DISPLAYORDERDETAIL nofilter}
 			
       <h2>{l s='Follow your order\'s status step-by-step' d='Shop.Theme.Customeraccount'}</h2>
       <dl>

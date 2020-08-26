@@ -29,12 +29,12 @@
 {/block}
 
 {block name='page_content_container'}
-  <section id="content" class="page-content page-stores">
+  <section id="content" class="page-content content page-stores">
 
     {foreach $stores as $store}
       <article id="store-{$store.id}" class="store-item">
         <header>
-          <h3>{$store.name}</h3>
+          <h2>{$store.name}</h2>
         </header>
 
         <div>
@@ -53,21 +53,16 @@
               <li>{l s='Email:' d='Shop.Theme.Global'} {$store.email}</li>
             {/if}
           </ul>
-          <p>{l s='Opening hours' d='Shop.Theme.Global'}</p>
-          <table>
+          
+          <h3>{l s='Opening hours' d='Shop.Theme.Global'}</h3>
+          <dl>
             {foreach $store.business_hours as $day}
-            <tr>
-              <td>{$day.day}</td>
-              <td>
-                <ul>
-                {foreach $day.hours as $h}
-                  <li>{$h}</li>
-                {/foreach}
-                </ul>
-              </td>
-            </tr>
+                <dt>{$day.day}</dt>
+              {foreach $day.hours as $h}
+                <dd>{$h}</dd>
+              {/foreach}
             {/foreach}
-          </table>
+          </dl>
         </div>
 
       </article>

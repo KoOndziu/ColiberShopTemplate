@@ -1,3 +1,15 @@
+.page-cms main{
+  p, 
+  ul li,
+  ol li {
+    text-align: justify;
+    line-height: 1.5rem;
+  }
+}
+
+ol {
+  padding-left: 2rem;
+}
 ul {
 	list-style-type: circle;
 	
@@ -16,7 +28,6 @@ ul {
 }
 
 img {
-	filter: brightness(97%);
   transition: filter .5s;
   
   &.lazyload {

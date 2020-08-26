@@ -26,7 +26,7 @@
 
 {block name='content'}
 
-  <section id="main">
+  <main id="main">
 
     {block name='page_header_container'}
       <header class="page-header">
@@ -54,6 +54,6 @@
 
     {/block}
 
-  </section>
+  </main>
 
 {/block}

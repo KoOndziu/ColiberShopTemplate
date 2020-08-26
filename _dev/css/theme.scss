@@ -14,14 +14,12 @@
 
 // lists and navigation
 @import 'nav/breadcrumb';
-@import 'nav/filter';
+@import 'nav/active';
 @import 'nav/grid';
 @import 'nav/list';
 @import 'nav/pagination';
-@import 'nav/productslist';
-@import 'nav/tab';
-@import 'nav/promo';
 @import 'nav/set';
+@import 'nav/sidenav';
 
 // elementary
 @import 'elementary/deflist';
@@ -32,27 +30,35 @@
 @import 'elementary/table';
 
 // form
+@import 'form/form';
 @import 'form/box';
 @import 'form/button';
-@import 'form/form';
 @import 'form/number';
 @import 'form/select';
 @import 'form/text';
 @import 'form/textarea';
 @import 'form/range';
+@import 'form/inputgroup';
+
+// cms
+@import 'cms/homepage';
 
 // catalog
 @import 'catalog/category';
 @import 'catalog/facet';
+@import 'catalog/flags';
+@import 'catalog/headslide';
 @import 'catalog/product';
-@import 'catalog/productcoverthumb';
-@import 'catalog/productlist';
-@import 'catalog/productprices';
+@import 'catalog/photos';
+@import 'catalog/products';
+@import 'catalog/productslist';
+@import 'catalog/prices';
 @import 'catalog/quickview';
 
 // checkout
 @import 'checkout/cart';
-@import 'checkout/checkoutprocess';
+@import 'checkout/checkout';
+@import 'checkout/promo';
 @import 'checkout/totals';
 
 // account
@@ -60,12 +66,21 @@
 @import 'account/messages';
 @import 'account/order';
 
+// bootstrap
+@import 'bootstrap/accordion';
+@import 'bootstrap/tab';
+
+// frameworks
+@import 'frameworks/jquery-ui';
+
 // modules
 @import 'modules/blockreassurance';
 @import 'modules/przelewy24';
+@import 'modules/ps_banner';
+@import 'modules/ps_emailsubscription';
 @import 'modules/ps_imageslider';
+@import 'modules/ps_legalcompliance';
 @import 'modules/ps_sharebuttons';
-@import 'modules/psgdpr';
 @import 'modules/uecookie';
 
 // fonts

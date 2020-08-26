@@ -5,8 +5,9 @@ input[type=radio] {
   cursor: pointer;
   width: var(--size-chck);
   height: var(--size-chck);
-  margin: .2rem var(--size-pdng) .2rem 0;
+  margin: .2rem var(--size-pdng-side) .2rem 0;
   padding: var(--size-chck-pdng);
+  flex-shrink: 0; // width prevent in flexbox
   vertical-align: middle;
   display: inline-block;
   border: solid 1px var(--color-brdr);

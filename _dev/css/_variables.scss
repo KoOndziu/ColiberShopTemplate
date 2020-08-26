@@ -7,21 +7,24 @@
 	
 	// sizes
 	--size-body: 1110px;
+  --size-body-pdng: 1rem;
+  --size-cntr: calc(var(--size-body) / 2);
   --size-grid-gap: 1rem;
   --size-chck: 1rem;
   --size-chck-pdng: 2px;
-	--size-pdng: .5rem;
-	--size-pdng-side: calc(var(--size-pdng) * 2);
+  --size-form-mrgn: .2rem 0 .4rem;
+	--size-pdng: 1rem;
+	--size-pdng-side: calc(var(--size-pdng));
 	
 	// colors
   --color-blck: #222;
-  --color-whte: #ddd;
+  --color-whte: #f2f2f2;
 	& {
 		--color-bcgr: #fff;
 		--color-frst: #f2f2f2;
 		--color-scnd: #ddd;
-		--color-brdr: #aaa;
-		--color-dsbl: #bbb;
+		--color-brdr: #999;
+		--color-dsbl: #ccc;
 		--color-font: #222;
 		--color-zero: rgba(221,221,221,0);   // #ddd0 rgba for EDGE18.
 		--color-alph: rgba(221,221,221,.93); // #ddde rgba for EDGE18.
@@ -31,8 +34,8 @@
 		--color-bcgr: #222;
 		--color-frst: #1b1b1b;
 		--color-scnd: #111;
-		--color-brdr: #999;
-		--color-dsbl: #666;
+		--color-brdr: #888;
+		--color-dsbl: #555;
 		--color-font: #ddd;
 		--color-zero: rgba(68,68,68,0);   // #4440 rgba for EDGE18.
 		--color-alph: rgba(68,68,68,.93); // #444e rgba for EDGE18.
@@ -58,8 +61,8 @@ $brkp-x-devices: 1200px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto; 
-	padding-left: 2rem;
-	padding-right: 2rem;
+	padding-left: var(--size-body-pdng);
+	padding-right: var(--size-body-pdng);
 	box-sizing: border-box;
 }
 
@@ -80,4 +83,12 @@ $brkp-x-devices: 1200px;
           -ms-user-select: none !important; /* Internet Explorer/Edge */
               user-select: none !important; /* Non-prefixed version, currently
                                              supported by Chrome, Opera and Firefox */
+}
+
+@media screen and (min-width: $brkp-s-devices) {
+  :root {
+    --size-body-pdng: 2rem;
+    --size-pdng: .5rem;
+    --size-pdng-side: calc(var(--size-pdng) * 2);
+  }
 }

@@ -25,7 +25,7 @@
 <section id="content" class="page-content page-not-found">
   {block name='page_content'}
 		
-    <p>
+    <p class="extender icon-ghost">
 			{l s='This page cannot be found' d='Shop.Navigation'}.<br>
 			{l s='Sorry for the inconvenience.' d='Shop.Theme.Global'}
 		</p>

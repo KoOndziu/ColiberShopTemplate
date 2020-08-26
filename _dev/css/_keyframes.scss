@@ -1,8 +1,26 @@
 @keyframes hourglass { 
-  20%  { transform: rotate(180deg); }
-  100%  { transform: rotate(180deg); }
+  20%  { transform: rotate(360deg); }
+  100%  { transform: rotate(360deg); }
 }
 
 @keyframes spinner {
   to {transform: rotate(360deg);}
+}
+
+@keyframes placeholder { 
+    0%{background-position:0% 92%}
+    100%{background-position:100% 9%}
+}
+
+@keyframes close-notification {
+  0%   { opacity: 0; max-height: 0; }
+  0.1% { opacity: 1; max-height: 500px; }
+  60%  { opacity: 1; }
+  80%  { opacity: 0; }
+  100% { opacity: 0; max-height: 0; }
+}
+
+@keyframes close-notification-time {
+  0%   { width: 100%; }
+  100% { width: 0; }
 }

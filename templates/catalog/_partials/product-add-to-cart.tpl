@@ -1,8 +1,7 @@
 <section class="product-add-to-cart">
   {if !$configuration.is_catalog}
-
     {block name='product_quantity'}
-      <div class="quantity">
+      <div class="quantity qty">
         <label for="quantity_wanted">{l s='Quantity' d='Shop.Theme.Catalog'}</label>
         <input
           type="number"
@@ -11,6 +10,7 @@
           value="{$product.quantity_wanted}"
           class="input-group"
           min="{$product.minimal_quantity}"
+          aria-label="{l s='Quantity' d='Shop.Theme.Actions'}"
           >
 
         {block name='product_minimal_quantity'}
@@ -26,32 +26,36 @@
         {/block}
       </div>
     {/block}
+    
+    {if isset($more) && $more}
+      <div>
+        <span>{l s="See more" d="Shop.Theme.Catalog"}</span>
+        {block name='product_more'}
+          <a 
+            href="{$product.url}" 
+            class="button icon-options-vertical"
+            title=""
+          >{l s="See more" d="Shop.Theme.Catalog"}</a>
+        {/block}
+      </div>
+    {/if}
 
-    <div class="add-to-cart">
-      {if $product.is_customizable && count($product.customizations.fields)}
-        <p class="icon-bulb">{l s='Don\'t forget to save your customization to be able to add to cart' d='Shop.Forms.Help'}!</p>
-      {/if}
-
-      {if $product.delivery_information}
-        <span class="delivery-information">{$product.delivery_information}</span>
-      {/if}
-
+    <div class="add last">
+      {block name='product_availability'}
+        <span id="product-availability">
+          {if $product.show_availability && $product.availability_message}
+            {if $product.availability == 'available'}{elseif $product.availability == 'last_remaining_items'}{else}{/if}
+            {$product.availability_message}
+          {/if}
+        </span>
+      {/block}
       <button 
-        class="
-        add-to-cart 
-        icon-{if $product.availability eq unavailable}ban{else if $product.availability eq available}basket{else}clock{/if}
-        "
+        class="add-to-cart icon-basket"
         type="submit"
         data-button-action="add-to-cart" 
         {if !$product.add_to_cart_url}disabled{/if}
-        >
-        {if !$product.add_to_cart_url}
-          {l s=$product.availability_message d="Modules.Facetedsearch.Shop"}
-        {else}
-          {l s='Add to cart' d='Shop.Theme.Actions'}
-        {/if}
+        >{l s='Add to cart' d='Shop.Theme.Actions'}
       </button>
     </div>
-
   {/if}
 </section>

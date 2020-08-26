@@ -9,8 +9,8 @@ export default class SlickSlider {
 			}
 
 			self.slick({
-				prevArrow:"<i class=\"icon-arrow-left slick-prev slick-arrow\">",
-				nextArrow:"<i class=\"icon-arrow-right slick-next slick-arrow\">",
+				prevArrow:"<button class=\"icon-arrow-left slick-prev slick-arrow\"></button>",
+				nextArrow:"<button class=\"icon-arrow-right slick-next slick-arrow\"></button>",
 				centerPadding: '0',
 				accessibility: true,
 				infinite: true,
@@ -34,8 +34,8 @@ export default class SlickSlider {
 			}
 
 			self.slick({
-				prevArrow:"<i class=\"icon-arrow-left slick-prev slick-arrow\">",
-				nextArrow:"<i class=\"icon-arrow-right slick-next slick-arrow\">",
+				prevArrow:"<button class=\"icon-arrow-left slick-prev slick-arrow\"></button>",
+				nextArrow:"<button class=\"icon-arrow-right slick-next slick-arrow\"></button>",
 				centerPadding: '0',
 				accessibility: true,
 				infinite: true,

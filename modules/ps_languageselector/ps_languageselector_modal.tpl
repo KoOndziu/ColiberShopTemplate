@@ -1,7 +1,10 @@
 {extends file='_partials/modal.tpl'}
 
 {block name='modal_attr'}
-	{assign var="modal" value=['id' => 'ps-languageselector-modal']}
+	{assign var="modal" value=[
+      'id' => 'ps-languageselector-modal',
+			'class' => 'modal modal-right'
+  ]}
 {/block}
 
 {block name='modal_title'}

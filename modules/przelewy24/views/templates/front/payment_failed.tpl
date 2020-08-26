@@ -5,35 +5,37 @@
 {/block}
 
 {block name='page_content'}
-	<p class="warning">
-		{l s='Your payment was not confirmed by Przelewy24. Contact with your seller for more information.' mod='przelewy24'}
-	</p>
-	{if isset($errorReason)}
-		<p>
-			<strong>{$errorReason}</strong>
-		</p>
-	{/if}
-	<p>
-		<a href="http://przelewy24.pl" target="_blank">
-			<img src="{$logo_url}"
-					 alt="{l s='Pay with Przelewy24' mod='przelewy24'}"/>
-		</a>
-	</p>
-	<ul class="list cart_navigation">
-		<li>
-			<a 
-				href="{$urls.base_url}" 
-				class="icon-basket-loaded"
-				>{l s='Return to shop' mod='przelewy24'}
-			</a>
-		</li>
-		<li>
-			<a 
-				class="icon-notebook" 
-				href="{$urls.pages.history}"
-				>{l s='Show order history' mod='przelewy24'}
-			</a>
-		</li>
-	</ul>
+  <div class="extender icon-close">
+    <p class="warning">
+      {l s='Your payment was not confirmed by Przelewy24. Contact with your seller for more information.' mod='przelewy24'}
+    </p>
+    {if isset($errorReason)}
+      <p>
+        <strong>{$errorReason}</strong>
+      </p>
+    {/if}
+    <p style="display: none;">
+      <a href="http://przelewy24.pl" target="_blank">
+        <img src="{$logo_url}"
+             alt="{l s='Pay with Przelewy24' mod='przelewy24'}"/>
+      </a>
+    </p>
+  </div>
+  <ul class="list list-center">
+    <li>
+      <a 
+        class="icon-basket-loaded"
+        href="{$urls.base_url}" 
+        >{l s='Return to shop' mod='przelewy24'}
+      </a>
+    </li>
+    <li>
+      <a 
+        class="icon-notebook" 
+        href="{$urls.pages.history}"
+        >{l s='Show order history' mod='przelewy24'}
+      </a>
+    </li>
+  </ul>	
 
 {/block}

@@ -1,3 +1,22 @@
+.blockreassurance {
+  padding: 0;
+  background: var(--color-scnd);
+  
+  > div {
+    @include content;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    > div {
+      padding: 1rem;
+      flex: 1 1 calc(var(--size-body) / 4);
+      text-align: center;
+    }
+  }
+}
+
 #block-reassurance {
   ul {
     padding: 0;

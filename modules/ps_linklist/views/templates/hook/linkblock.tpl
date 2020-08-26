@@ -24,7 +24,7 @@
  *}
 
 {foreach $linkBlocks as $linkBlock}
-  <section>
+  <div>
     <h3>{$linkBlock.title}</h3>
     <ul>
       {foreach $linkBlock.links as $link}
@@ -41,5 +41,5 @@
         </li>
       {/foreach}
     </ul>
-  </section>
+  </div>
 {/foreach}

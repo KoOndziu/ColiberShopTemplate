@@ -1,0 +1,19 @@
+main > .email_subscription {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem 0;
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: "\e01f";
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    z-index: -1;
+    color: var(--color-frst);
+    font-size: 0px;
+    font-family: 'simple-line-icons';
+  }
+}

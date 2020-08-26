@@ -16,11 +16,13 @@
 		>
 		<div class="modal-content">
 			<header class="modal-header">
-				<span class="modal-title h2">
-					{block name='modal_title'}
-						<!-- Modal title -->
-					{/block}
-				</span>
+        {block name='modal_title_container'}
+          <span class="modal-title h2">
+            {block name='modal_title'}
+              <!-- Modal title -->
+            {/block}
+          </span>
+        {/block}
 				<button 
 					type="button" 
 					class="close icon-close" 

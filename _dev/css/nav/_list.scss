@@ -1,18 +1,40 @@
-ul.list {
+.list li, 
+.li {
+  margin: var(--size-form-mrgn) 0;
+  display: flex;
+  
+  > a:only-child {
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+
+    &::before {
+      height: 100%;
+      float: left;
+      line-height: 1.5;
+    }
+  }
+  
+  input {
+    flex-shrink: 0;
+  }
+  
+}
+
+.list,
+.custom-checkbox,
+.form-checkbox {
 	padding: 0;
 	list-style-type: none;
-	
-	li {
+	text-align: justify;
+  
+	> li,
+  > label {
 		margin: var(--size-pdng) 0;
-	}
-	
-	a {
-		color: inherit;
-		text-decoration: inherit;
-		
-		&:hover {
-			text-decoration: underline;
-		}
+    display: flex;
+    
+    > span {
+      margin: 0;
+    }
 	}
 	
 	&.list-center {
@@ -20,5 +42,37 @@ ul.list {
 		max-width: 100%;
 		margin-left: auto;
 		margin-right: auto;
+	}
+  
+  &.list-min-content {
+		max-width: 100%;
+		width: min-content;
+		margin-left: auto;
+		margin-right: auto;
+		box-sizing: border-box;
+		justify-content: center;
+		
+		li {
+			max-width: 100%;
+			width: max-content;
+		}
+	}
+}
+
+.cart-detailed-actions {
+  text-align: center;
+	
+	ul.notifications {
+		max-width: 100%;
+		width: min-content;
+		margin-left: auto;
+		margin-right: auto;
+		box-sizing: border-box;
+		justify-content: center;
+		
+		li {
+			max-width: 100%;
+			width: max-content;
+		}
 	}
 }

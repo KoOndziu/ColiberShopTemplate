@@ -1,20 +1,19 @@
 {if $product.show_price}
   <div class="product-prices">
+    
+    {hook h='displayProductPriceBlock' product=$product type="before_price"}
 		
 		<section class="prices">
 			{block name='product_discount'}
 				{if $product.has_discount}
 					<p class="product-discount">
 						{hook h='displayProductPriceBlock' product=$product type="old_price"}
-						<span class="regular-price">{$product.regular_price}</span>
+						<span 
+              class="regular-price{if $product.discount_type === 'percentage'} discount-percentage{else} discount-amount{/if}"
+              title="{l s='Regular price' d='Shop.Theme.Catalog'}"
+              >{$product.regular_price}
+            </span>
 					</p>
-
-					{if $product.discount_type === 'percentage'}
-						<p class="discount-percentage">{$product.discount_percentage}</p>
-					{else}
-						<p class="discount-amount">{$product.discount_amount_to_display}</p>
-					{/if}
-
 				{/if}
 			{/block}
 
@@ -28,12 +27,13 @@
 							title="{$product.labels.tax_short}" 
 						{/if}
 						class="current-price" 
-						itemprop="price" 
+						itemprop="price"
+            title="{l s='Price' d='Shop.Theme.Catalog'}"
 						content="{$product.price_amount}"
-					>{$product.price}</span> 
+					>{$product.price}</span>
 
 					{block name='product_pack_price'}
-						{if $displayPackPrice}
+						{if isset($displayPackPrice) && $displayPackPrice}
 							<span 
 								class="product-pack-price"
 								>({l s='Instead of %price%' d='Shop.Theme.Catalog' sprintf=['%price%' => $noPackPrice]})
@@ -48,15 +48,16 @@
 		
 		<section class="units"
 			{block name='product_unit_price'}
-				{if $displayUnitPrice}
+				{if isset($displayUnitPrice) && $displayUnitPrice}
 					<p class="product-unit-price">{$product.unit_price} / {$product.unity}</p>
 				{/if}
+        {hook h='displayProductPriceBlock' product=$product type='unit_price'}
 			{/block}
 		</section>
 		
 		<section class="taxes">
 			{block name='product_without_taxes'}
-				{if $priceDisplay == 2}
+				{if isset($priceDisplay) && $priceDisplay == 2}
 					<p 
 						class="product-without-taxes"
 						>{l s='%price% tax excl.' d='Shop.Theme.Catalog' sprintf=['%price%' => $product.price_tax_exc]}
@@ -76,6 +77,5 @@
 
     {hook h='displayProductPriceBlock' product=$product type="weight" hook_origin='product_sheet'}
     {hook h='displayProductPriceBlock' product=$product type="after_price"}
-
   </div>
 {/if}

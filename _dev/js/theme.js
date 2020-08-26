@@ -31,6 +31,7 @@ import 'bootstrap/js/src/modal';
 import 'bootstrap/js/src/popover';
 import 'bootstrap/js/src/tab';
 import 'bootstrap-touchspin';
+import 'tocca';
 
 import './lib/slick.min';
 import './lib/background-check.min';
@@ -91,12 +92,17 @@ $(document).ready(() => {
   
   // check contrast between texts and images
   try {
-		BackgroundCheck.init({ targets: '.text' });
+		BackgroundCheck.init({ targets: '.check-text' });
 	}
 	catch(err) {
 		console.log("BGcheck: " + err);
 	}
 	
+  $body.on('click', '.card-header', (event) => {
+    event.preventDefault();
+    $($(event.target).data("target")).collapse();
+  });
+  
   // open modals
 	$body.on('click', '.js-open-modal', (event) => {
     event.preventDefault();
@@ -113,18 +119,12 @@ $(document).ready(() => {
     console.log($('.modal-open').scrollTop());
   });
   
-  $(document).on( 'click', '.slider > div:nth-child(2)', () => {
-    $('.slider > div:last-child').insertBefore('.slider > div:first-child');
-  });
-  $(document).on( 'swipeleft', () => {
-    $('.slider > div:first-child').insertAfter('.slider > div:last-child');
-  });
-
-  $(document).on( 'click', '.slider > div:nth-child(4)', () => {
-    $('.slider > div:first-child').insertAfter('.slider > div:last-child');
-  });
-  $(document).on( 'swiperight', () => {
-    $('.slider > div:last-child').insertBefore('.slider > div:first-child');
-  });
+  let insrtBfr = () => {$('.product-images > div:last-child').insertBefore('.product-images > div:first-child')};
+  let insrtAfr = () => {$('.product-images > div:first-child').insertAfter('.product-images > div:last-child')};
+  
+  $(document).on( 'click', '.product-images > div:nth-child(2)', insrtBfr);
+  $(document).on( 'swipeleft', '.product-images', insrtAfr);
+  $(document).on( 'click', '.product-images > div:nth-child(4)', insrtAfr);
+  $(document).on( 'swiperight', '.product-images', insrtBfr);
   
 });

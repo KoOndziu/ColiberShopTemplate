@@ -6,7 +6,7 @@ import Ajax from './components/ajax';
 const selectors = {
   cartCount: '.js-cart-count',
   checkoutButton: '.js-checkout-button', 
-  
+  addToCartButton: 'button.add-to-cart',
   clickAction: 'button[data-action], a[data-action]',
   changeAction: 'input[type=number][data-action]',
   submitAction: 'form[data-action]'
@@ -132,11 +132,15 @@ $(document).ready(() => {
     let productsCount = event.reason.cart.products_count;
     let cartCount = $(selectors.cartCount);
     let checkoutButton = $(selectors.checkoutButton);
+    let addToCartButton = $(selectors.addToCartButton);
     let quickView = $('.quickview');
     
     Utils.isLoad('.js-cart');
     cartCount.attr('data-cart-count', productsCount);
     quickView.modal('hide');
+    addToCartButton.removeClass('icon-basket');
+    addToCartButton.addClass('icon-basket-loaded');
+    document.activeElement.blur();
     
     if (productsCount) {
       checkoutButton.removeClass('disabled');
@@ -151,6 +155,7 @@ $(document).ready(() => {
   };
   
   let handleError = () => {
+    document.activeElement.blur();
     Utils.isLoaded('.js-cart');
     CheckUpdateQuantityOperations.switchErrorStat();
   };
@@ -161,7 +166,8 @@ $(document).ready(() => {
 
   body.on('click',  selectors.clickAction,  handleCartAction);
   body.on('change', selectors.changeAction, handleCartAction);
-  body.on('submit', selectors.formAction,   handleCartAction);
+  // nie działają błędy formularzy :(
+  //body.on('submit', selectors.formAction,   handleCartAction);
 });
 
 const CheckUpdateQuantityOperations = {

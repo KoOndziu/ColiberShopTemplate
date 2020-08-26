@@ -1,9 +1,7 @@
 {extends file='page.tpl'}
 
 {block name='page_content'}
-
   <section>
-    <h1>{l s='Shopping Cart' d='Shop.Theme.Checkout'}</h1>
 
 		{block name='content'}
 			{hook h='displayCrossSellingShoppingCart'}

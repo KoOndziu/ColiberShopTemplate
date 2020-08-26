@@ -6,10 +6,12 @@
         totals=$cart.totals
       }
     {else}
-      <p 
-        class="cart-is-empty icon-ghost extender"
-        >{l s='There are no more items in your cart' d='Shop.Theme.Checkout'}.
-      </p>
+      <div class="js-cart">
+        <p 
+          class="cart-is-empty icon-ghost extender"
+          >{l s='There are no more items in your cart' d='Shop.Theme.Checkout'}.
+        </p>
+      </div>
     {/if}
 	</section>
 {/block}

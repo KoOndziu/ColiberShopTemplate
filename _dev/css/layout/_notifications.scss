@@ -24,3 +24,75 @@ ul.notifications {
 	}
 	
 }
+
+aside.notifications {
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 100;
+  
+    ul {
+      max-width: 100%;
+      width: 400px;
+      margin: 0;
+      padding: 1rem;
+
+      li {        
+        > div {
+          padding: var(--size-pdng-side);
+          position: relative;
+          overflow: hidden;
+          background: var(--color-frst);
+          border-radius: var(--border-radius);
+          
+          &::before {
+            content: "";
+            width: 100%;
+            height: .1em;
+            display: block;
+            position: absolute;
+            top: 0; left: 0;
+            border-radius: var(--border-radius);
+            animation: close-notification-time 5s linear forwards;
+          }
+          
+          button[class*='icon-'] {
+            margin-left: auto !important;
+          }
+        }      
+
+        & {
+          max-height: 500px;
+          position: relative;
+          overflow: hidden;
+          box-sizing: border-box;
+          animation: close-notification 3s forwards;
+          animation-delay: 5s;
+          
+          &.notification-error { div:before { background: #f9c3c2; } }
+          &.notification-warning { div:before { background: #fbe8c0; } }
+          &.notification-success { div:before { background: #c2f0e6; } }
+          &.notification-info { div:before { background: var(--color-scnd); } } 
+          
+          &.close > div::before {
+            animation-delay: 0s;
+          }
+          
+          @for $i from 0 through 9 {
+            &:nth-child(#{$i+1}n) {
+              animation-delay: #{$i * 3 + $i * 5 + 5}s;
+              div::before {
+                animation-delay: #{$i * 5 + $i * 3}s;
+              }
+            } 
+          }
+        }
+      }
+      
+      &:hover {
+        li, li div::before {
+          animation-play-state: paused;
+        }
+      }
+    }
+  }

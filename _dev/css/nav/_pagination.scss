@@ -1,22 +1,9 @@
-.pagination {
-	.pagination_summary {
-		width: 120px;
-		height: 120px;
-		margin: 2rem auto 1rem;
-		padding: 40px;
-		box-sizing: border-box;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-wrap: nowrap;
-		border-radius: 50%;
-		text-align: center;
-		
-		span {
-			display: block;
-		}
-	}
+.pagination {  
+  p {
+    text-align: center;
+  }
   ul {
+    margin: 0 auto;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -24,8 +11,18 @@
     list-style-type: none;
     
     li {
-			margin: .4rem;
       a {padding: 0;}
+      .icon-number::before {
+        content: attr(data-number);
+        width: 1em;
+        height: 1em;
+        display: block;
+        line-height: 1;
+        font-family: inherit;
+      }
+      .spacer {
+        padding: var(--size-pdng);
+      }
     }
   }
 }

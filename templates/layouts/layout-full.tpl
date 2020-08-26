@@ -14,9 +14,17 @@
         {block name='hook_after_body_opening_tag'}
           {hook h='displayAfterBodyOpeningTag'}
         {/block} 
-        
+
         {include file='_partials/header.tpl'}
         
+        {block name='sidenav_container'}
+          <ul class="sidenav">
+            {block name='sidenav'}{/block}
+            <li><span class='button icon-bulb toggle-dark-mode' title="dark mode"></span></li>
+            <li><a href="#" class="button submit icon-arrow-up-circle"></a></li>
+          </ul>
+        {/block}
+
         {block name='notifications'}
           <aside id="notifications" class="notifications">
             {include file='_partials/notifications.tpl' closable=true}
@@ -30,7 +38,7 @@
       <aside>
         {block name='aside'}{/block}
       </aside>
-      
+
       <main>
         {hook h="displayMainTop"}
         {block name='content'}{/block}
@@ -38,11 +46,11 @@
       </main>
     {/block}
 
-    <footer>
-      {block name='footer'}
+    {block name='footer'}
+      <footer>
         {include file='_partials/footer.tpl'}
-      {/block}
-    </footer>
+      </footer>
+    {/block}
 
     {block name='javascript_bottom'}
       {include file="_partials/javascript.tpl" javascript=$javascript.bottom}

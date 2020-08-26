@@ -1,3 +1,43 @@
-a {
+a, .a {
+  cursor: pointer;
 	color: inherit;
+  
+  &:hover {
+    text-decoration: underline;
+  }
 }
+
+a.see-more,
+.a.see-more,
+.products + a {
+		margin: 1rem 0;
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		
+		&:hover {
+			text-decoration: underline;
+			&:after {
+				text-decoration: none;
+			}
+		}
+		
+		&:after {
+			content: " \e079";
+			margin-left: var(--size-pdng);
+			font-family: 'simple-line-icons';
+			speak: none;
+			display: inline-block;
+			vertical-align: middle;
+			vertical-align: baseline;
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			color: inherit;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}

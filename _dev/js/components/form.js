@@ -46,10 +46,10 @@ export default class Form {
       var elm = $(this).closest('.input-group').children('input.js-visible-password');
       if (elm.attr('type') === 'password') {
         elm.attr('type', 'text');
-        $(this).text($(this).data('textHide'));
+        $(this).attr('title', ($(this).data('textHide')) );
       } else {
         elm.attr('type', 'password');
-        $(this).text($(this).data('textShow'));
+        $(this).attr('title', ($(this).data('textShow')) );
       }
 
     });

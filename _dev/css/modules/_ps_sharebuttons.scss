@@ -1,3 +1,4 @@
+.ps-social-follow,
 .social-sharing {
   ul {
     padding: 0;
@@ -8,5 +9,13 @@
   }
   a {
     color: inherit;
+  }
+}
+
+.ps-social-follow {
+  display: flex;
+  align-items: center;
+  > *:not(:last-child) {
+    margin-right: var(--size-pdng);
   }
 }

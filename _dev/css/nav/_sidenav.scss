@@ -1,0 +1,18 @@
+.sidenav {
+  padding: 0;
+  list-style: none;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 91;
+  
+  > li {
+    padding-top: var(--size-pdng);
+    
+    > button::before,
+    > .button::before {
+      padding: 1rem;
+      background: var(--color-scnd);
+    }
+  }
+}

@@ -5,20 +5,22 @@
 {/block}
 
 {block name='page_content'}
-	<p>
-		{l s='Thank you for your purchase. Your payment was confirmed by Przelewy24. You can track your order in history of orders.' mod='przelewy24'}
-	</p>
-	<p>
-		<a href="http://przelewy24.pl" target="_blank">
-			<img src="{$logo_url}"
-					 alt="{l s='Pay with Przelewy24' mod='przelewy24'}"/>
-		</a>
-	</p>
-	<ul class="list cart_navigation">
+  <div class="extender icon-check">
+    <p>
+      {l s='Thank you for your purchase. Your payment was confirmed by Przelewy24. You can track your order in history of orders.' mod='przelewy24'}
+    </p>
+    <p style="display: none">
+      <a href="http://przelewy24.pl" target="_blank">
+        <img src="{$logo_url}"
+             alt="{l s='Pay with Przelewy24' mod='przelewy24'}"/>
+      </a>
+    </p>
+  </div>
+	<ul class="list list-center">
 		<li>
 			<a 
-				href="{$urls.base_url}" 
-				class="icon-basket-loaded"
+        class="icon-basket-loaded"
+				href="{$urls.base_url}"
 				>{l s='Return to shop' mod='przelewy24'}
 			</a>
 		</li>

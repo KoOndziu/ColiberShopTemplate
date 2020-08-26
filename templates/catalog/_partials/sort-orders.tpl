@@ -22,20 +22,15 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<section class="products-sort-order">
-  <select id="select-sort-order" name="select-city">
-    {if !isset($listing.sort_selected)}
-      <option value="" disabled selected>{l s='Sort by:' d='Shop.Theme.Global'}</option>
-    {/if}
-    
-    {foreach from=$sort_orders item=sort_order}
-      <option
-        class="{['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
-        value="{$sort_order.url}"
-        {if $listing.sort_selected eq $sort_order.label}
-           disabled selected
-        {/if}
-      >{$sort_order.label}</option>
-    {/foreach}
-  </select>
-</section>
+<select id="select-sort-order" name="select-city">
+  {if !isset($listing.sort_selected)}
+    <option value="" disabled selected>{l s='Sort' d='Shop.Theme.Actions'}</option>
+  {/if}
+
+  {foreach from=$sort_orders item=sort_order}
+    <option
+      class="{['current' => $sort_order.current, 'js-search-link' => true]|classnames}"
+      value="{$sort_order.url}"
+    >{$sort_order.label}</option>
+  {/foreach}
+</select>

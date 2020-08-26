@@ -24,13 +24,10 @@
 *}
 
 <div id="gdpr_consent" class="gdpr_module_{$psgdpr_id_module|escape:'htmlall':'UTF-8'}">
-    <span class="custom-checkbox">
-        <label class="psgdpr_consent_message">
-            <input id="psgdpr_consent_checkbox_{$psgdpr_id_module|escape:'htmlall':'UTF-8'}" name="psgdpr_consent_checkbox" type="checkbox" value="1">
-            <span><i class="material-icons rtl-no-flip checkbox-checked psgdpr_consent_icon"></i></span>
-            <span>{$psgdpr_consent_message nofilter}</span>{* html data *}
-        </label>
-    </span>
+    <div class="form-check psgdpr_consent_message">
+      <input id="psgdpr_consent_checkbox_{$psgdpr_id_module|escape:'htmlall':'UTF-8'}" name="psgdpr_consent_checkbox" type="checkbox" value="1">
+      <label for="psgdpr_consent_checkbox_{$psgdpr_id_module|escape:'htmlall':'UTF-8'}">{$psgdpr_consent_message nofilter}</label>
+    </div>
 </div>
 {literal}
 <script type="text/javascript">

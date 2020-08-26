@@ -1,0 +1,108 @@
+div.products {
+	max-width: 100%;
+	margin-bottom: 1rem;
+  display: grid;
+  grid-gap: var(--size-grid-gap);
+	grid-template-columns: 1fr 1fr;
+  
+	article {
+		position: relative;
+    overflow: hidden;
+    background: var(--color-whte);
+    border-radius: var(--border-radius);
+    color: var(--color-blck);
+    
+    &::before{
+      content: '';
+      display: block;
+      padding-bottom: 133.3%;
+    }
+    
+    a {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+      z-index: 3;  
+    }
+    
+    .product-content {
+      padding: 1rem;
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .product-thumbnail {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+        
+      img {
+        height: auto;
+        max-width: none;
+        width: 100%;
+        object-fit: contain;
+        transition: height .2s, width .2s;
+        filter: brightness(95%);
+      }
+    }
+    
+    .product-flags {
+      position: absolute;
+      top: 0; left: 1rem;
+      z-index: 2;
+    }
+    
+    .product-name {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--color-brdr);
+      font-size: .8em
+    }
+    
+    .product-prices {
+      
+    }
+		
+		.variant-links {
+			display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 4;
+		}
+    
+    &:hover {
+      img {
+        width: 120%;
+      }
+      
+      .product-flags {}
+      .product-prices {}
+      .variant-links {}
+      .shadow {}
+    }
+	}
+  
+  + a {
+		text-align: right;
+  }
+}
+
+@media screen and (min-width: $brkp-l-devices) {
+	div.products {
+		grid-template-columns: repeat(auto-fill, minmax(calc(var(--size-body) / 5), 1fr));
+	}
+}

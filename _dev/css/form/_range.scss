@@ -59,6 +59,7 @@ input[type=range] {
   box-sizing: border-box;
   border: none !important;
   background: none !important;
+  z-index: 1; // !important
   
   &:before {
     content: "";

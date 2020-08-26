@@ -5,7 +5,7 @@
 {/block}
 
 {block name='modal_title'}
-	{l s='Filter By' d='Shop.Theme.Actions'}
+	{l s='Filter' d='Shop.Theme.Actions'}
 {/block}
 
 {block name='modal_body'}

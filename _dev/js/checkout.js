@@ -24,17 +24,21 @@
  */
 import $ from 'jquery';
 import prestashop from 'prestashop';
+import Utils from './components/utils';
 
 function setUpCheckout() {
 
-  $('.js-terms a').on('click', (event) => {
+  $('body').on('click', '.js-terms a', (event) => {
     event.preventDefault();
+    Utils.isLoad('#modal .modal-body .js-modal-content');
+    
     var url = $(event.target).attr('href');
     if (url) {
       // TODO: Handle request if no pretty URL
       url += `?content_only=1`;
       $.get(url, (content) => {
         $('#modal').find('.js-modal-content').html($(content).find('.page-content--cms').contents());
+        Utils.isLoaded('#modal .modal-body .js-modal-content');
       }).fail((resp) => {
         prestashop.emit('handleError', {eventType: 'clickTerms', resp: resp});
       });

@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
-	width: .5rem;
+	width: .4rem;
+  height: .4rem;
 }
 ::-webkit-scrollbar-track {
   background: none;
@@ -18,6 +19,17 @@
 	&:hover  { background-color: var(--color-font); border: none; }
 	&:focus  { background-color: var(--color-font); border: none; }
 	&:active { background-color: var(--color-font); border: none; }
+}
+
+.no-scroll, 
+.tabs,
+.products {
+  scrollbar-width: none;
+  scrollbar-height: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
 
 body {

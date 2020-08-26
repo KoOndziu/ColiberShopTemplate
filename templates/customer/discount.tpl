@@ -8,9 +8,9 @@
 	<p>{l s='Your vouchers' d='Shop.Theme.Customeraccount'}.</p>
 	
   {if $cart_rules}
-    <ul class="grid promos">
+    <section class="grid promos">
       {foreach from=$cart_rules item=discount}
-        <li>
+        <article>
           <header>
             <span class="h2">{$discount.name}</span>
             <nav>
@@ -60,9 +60,9 @@
               >{$discount.voucher_date}
             </li>
           </ul>
-        </li>
+        </article>
       {/foreach}
-    </ul>
+    </section>
     
 		<div class="table-wrapper">
 			<table>

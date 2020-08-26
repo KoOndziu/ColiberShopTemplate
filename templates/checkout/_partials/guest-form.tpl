@@ -26,7 +26,7 @@
 
 {block "form_field"}
   {if $field.name === 'password' and $guest_allowed}
-    <p>{l s='Choose a password to create an account and save time on your next order (optional)' d='Shop.Theme.Checkout'}</p>
+    <span>{l s='Choose a password to create an account and save time on your next order (optional)' d='Shop.Theme.Checkout'}</span>
     {$smarty.block.parent}
   {else}
     {$smarty.block.parent}

@@ -6,10 +6,13 @@
   <section class="page-content page-authentication">
     {block name='login_form_container'}
       <header>
-        <h1>{l s='Log in to your account' d='Shop.Theme.Customeraccount'}</h1>
+        <h1>{l s='Sign in' d='Shop.Theme.Actions'}</h1>
         <span>
-					<a href="{$urls.pages.register}" data-link-action="display-register-form">
-						{l s='No account? Create one here' d='Shop.Theme.Customeraccount'}
+          {{l s='No account? Create one here' d='Shop.Theme.Customeraccount'}|regex_replace:"/(?<=\?\s).*/":""}
+					<a 
+            href="{$urls.pages.register}" 
+            data-link-action="display-register-form"
+            >{{l s='No account? Create one here' d='Shop.Theme.Customeraccount'}|regex_replace:"/.*(?<=\?\s)/":""}!
 					</a>
 				</span>
       </header>

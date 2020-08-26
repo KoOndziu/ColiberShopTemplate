@@ -23,7 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 
-<section class="block-contact">
+<div class="block-contact">
   
   <h3>{l s='Store information' d='Shop.Theme.Global'}</h3>
   {$contact_infos.address.formatted nofilter}
@@ -79,4 +79,4 @@
     </li>
     
   </ul>
-</section>
+</div>

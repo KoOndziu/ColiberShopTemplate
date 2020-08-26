@@ -19,20 +19,22 @@ input[type=week],
 input[type=time],
 input[type=datetime],
 input[type=datetime-local],
-.input-text {
+.input-text,
+.input-group {
   -webkit-appearance: none;
   -moz-appearance:    none;
   appearance:         none;
   outline: none;
   
-  margin: .2rem 0;
-  padding: .5rem 0;
+  margin: var(--size-form-mrgn);
+  padding: var(--size-pdng) 0;
   box-sizing: border-box;
   vertical-align: middle;
   background: transparent;
   border-width: 1px;
   border-color: var(--color-brdr);
   border-style: none none solid;
+  border-radius: 0; // for safari;
   font-size: 1rem;
 	
 	&:-webkit-autofill { @include fix-autofill }
@@ -52,15 +54,6 @@ input[type=datetime-local],
 		border-color: var(--color-dsbl);
 	}
 }
-
-.input-text {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	> input,
-	> textarea {
-    margin: 0;
-		flex: 1;
-		border: none;
-	}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: pink !important;
 }

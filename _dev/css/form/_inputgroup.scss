@@ -1,0 +1,36 @@
+//historyczny
+.input-text,
+.input-group {
+	display: flex;
+  justify-content: center;
+  padding: 0;
+  
+  .input-group-prepend,
+  .input-group-append {
+    display: flex;
+    justify-content: center;
+    
+    > button,
+    > .butoon {
+      margin: 0;
+    }
+  }
+  
+	> input,
+	> textarea {
+    margin: 0;
+		flex: 1;
+		border: none;
+	}
+  > input[type=number] {
+    max-width: 2rem;
+    padding-left: 0;
+    padding-right: 0;
+		text-align: center;
+    background-image: none;
+		&::-webkit-outer-spin-button, 
+		&::-webkit-inner-spin-button {
+			display: none !important;
+		}
+	}
+}

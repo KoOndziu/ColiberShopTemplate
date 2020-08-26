@@ -90,7 +90,9 @@
         </footer>
       </form>
     {else}
-      <p class="warning">{l s='Unfortunately, there are no carriers available for your delivery address.' d='Shop.Theme.Checkout'}</p>
+      <ul class="list list-min-content">
+        <li class="icon-exclamation">{l s='Unfortunately, there are no carriers available for your delivery address.' d='Shop.Theme.Checkout'}</li>
+      </ul>
     {/if}
   </div>
 

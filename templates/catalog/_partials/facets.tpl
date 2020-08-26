@@ -1,1 +1,1 @@
-/* ps_activefilters */
+/* ps_facetedsearch */

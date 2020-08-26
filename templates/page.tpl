@@ -27,17 +27,11 @@
 {block name='aside'}{/block}
 
 {block name='content'}
-	
-	<nav class="breadcrumb content">
-	  {block name='breadcrumb'}
-	    {include file='_partials/breadcrumb.tpl'}
-	  {/block}
-	</nav>
 
     {block name='page_header_container'}
       <header class="page-header content">
         {block name='page_header'}
-          <h1>{block name='page_title'}{/block}</h1>
+          <h1>{block name='page_title'}{$page.meta.title}{/block}</h1>
         {/block}
       </header>
     {/block}

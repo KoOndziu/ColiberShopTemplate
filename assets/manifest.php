@@ -2,9 +2,9 @@
 header('Content-type: application/json');
 ?>
 {
-	"name": "Tarabuso",
-	"short_name": "Tarabuso",
-	"start_url": "/pl/",
+	"name": "Tarabuso DEV",
+	"short_name": "Tarabuso DEV",
+	"start_url": "/",
 	"display": "standalone",
 	"theme_color": "#222",
 	"background_color": "#222",

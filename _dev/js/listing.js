@@ -93,6 +93,7 @@ $(document).ready(() => {
   $('body').on('change','#select-sort-order', function () {
     addLoadingClassProductList();
     prestashop.emit('updateFacets', $(this).val());
+    $('#sort-orders-modal').modal('hide');
   });
 
   prestashop.on('updateProductList', (data) => {

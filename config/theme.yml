@@ -14,7 +14,10 @@ meta:
   available_layouts:
     layout-full:
       name: Full width
-      description: No top aside, ideal for distraction-free pages such as product pages.
+      description: For homepage, product pages and categories.
+    layout-mini:
+      name: Full width
+      description: For forms and checkout.
 
 global_settings:
   configuration:
@@ -22,7 +25,7 @@ global_settings:
     
   modules:
     to_reset:
-      - ps_emailalerts
+      - ps_emailalerts000
 
   hooks:
     custom_hooks:
@@ -45,12 +48,15 @@ global_settings:
         - ps_newproducts
         - ps_bestsellers
         - ps_specials
-        - ps_viewedproduct
         - ps_banner
+        - ps_viewedproduct
         - ps_emailsubscription
       displayFooter:
         - ps_contactinfo
         - ps_linklist
+        - ps_legalcompliance
+      displayFooterLine:
+        - ps_socialfollow
       displayShare:
         - ps_sharebuttons
 
@@ -86,3 +92,8 @@ global_settings:
 
 theme_settings:
   default_layout: layout-full
+  layouts:
+    authentication: layout-mini
+    registration: layout-mini
+    order: layout-mini
+    order-confirmation: layout-mini

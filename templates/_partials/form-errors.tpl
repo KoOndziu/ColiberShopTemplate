@@ -26,7 +26,7 @@
   {if $errors|count}
     <ul class='form-errors'>
       {foreach $errors as $error}
-        <li>{$error}</li>
+        <li><small>{$error|regex_replace:"/^-\s/":""|ucfirst}</small></li>
       {/foreach}
     </ul>
   {/if}

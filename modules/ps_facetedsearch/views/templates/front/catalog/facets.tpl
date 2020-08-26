@@ -24,7 +24,7 @@
   *}
 {if $displayedFacets|count}
   <div id="search_filters" class="grid">
-
+    
     {foreach from=$displayedFacets item="facet"}
       <section class="facet">
         <header>

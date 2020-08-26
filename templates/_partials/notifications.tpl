@@ -1,66 +1,52 @@
-{if isset($notifications) and (
-	(isset($notifications.error) and $notifications.error) or 
-	(isset($notifications.warning) and $notifications.warning) or 
-	(isset($notifications.success) and $notifications.success) or 
-	(isset($notifications.info) and $notifications.info))
+{if isset($notifications) or 
+    isset($errors) or 
+    isset($warnings) or 
+    isset($successes) or 
+    isset($infos)
 }
 	<ul class="notifications">
 
-		{if isset($notifications.error) and $notifications.error}
-			{block name='notifications_error'}
-				{foreach $notifications.error key=$class item=$notif}
-					<li	role="alert" data-alert="danger" class="notification-danger {$class}">
-            <div>
-              <i class="icon-close"></i>
-              <div>{$notif nofilter}</div>
-              {if isset($closable) && $closable}<button class="icon-close"></button>{/if}
-            </div>
-          </li>
-				{/foreach}
-			{/block}
-		{/if}
-		
-		{if isset($notifications.warning) and $notifications.warning}
-			{block name='notifications_warning'}
-				{foreach $notifications.warning key=$class item=$notif}
-					<li role="alert" data-alert="warning" class="notification-warning {$class}">
-            <div>
-              <i class="icon-exclamation"></i>
-              <div>{$notif nofilter}</div>
-              {if isset($closable) && $closable}<button class="icon-close"></button>{/if}
-            </div>
-					</li>
-				{/foreach}
-			{/block}
-		{/if}
-		
-		{if isset($notifications.success) and $notifications.success}
-			{block name='notifications_success'}
-				{foreach $notifications.success key=$class item=$notif}
-					<li role="alert" data-alert="success"	class="notification-success {$class}">
-            <div>
-              <i class="icon-check"></i>
-              <div>{$notif nofilter}</div>
-              {if isset($closable) && $closable}<button class="icon-close"></button>{/if}
-            </div>
-					</li>
-				{/foreach}
-			{/block}
-		{/if}
-		
-		{if isset($notifications.info) and $notifications.info}
-			{block name='notifications_info'}
-				{foreach $notifications.info key=$class item=$notif}
-					<li role="alert" data-alert="info" class="notification-info {$class}">
-            <div>
-              <i class="icon-info"></i>
-              <div>{$notif nofilter}</div>
-              {if isset($closable) && $closable}<button class="icon-close"></button>{/if}
-            </div>
-					</li>
-				{/foreach}
-			{/block}
-		{/if}
-	
+    {if isset($notifications.error)}
+      {foreach $notifications.error item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'error','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    {if isset($notifications.warning)}
+      {foreach $notifications.warning item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'warning','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    {if isset($notifications.success)}
+      {foreach $notifications.success item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'success','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    {if isset($notifications.info)}
+      {foreach $notifications.info item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'info','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    
+    {if isset($errors)}
+      {foreach $errors item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'error','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    {if isset($warnings)}
+      {foreach $warnings item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'warning','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    {if isset($successes)}
+      {foreach $successes item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'success','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    {if isset($infos)}
+      {foreach $info item=$notify}
+        {include file='_partials/notify.tpl' notify=['type'=>'info','text'=>$notify,'closable'=>1]}
+      {/foreach}
+    {/if}
+    
 	</ul>
 {/if}

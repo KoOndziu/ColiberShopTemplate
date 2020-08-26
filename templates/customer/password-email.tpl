@@ -25,44 +25,60 @@
 {extends file='page.tpl'}
 
 {block name='page_title'}
-  {l s='Forgot your password?' d='Shop.Theme.Customeraccount'}
+  {l s='Reset your password' d='Shop.Theme.Customeraccount'}
 {/block}
 
 {block name='page_content'}
-  <section class="page-content password-form">
-    <form action="{block name='form_new_password_actionurl'}{$urls.pages.password}{/block}" method="post">
+  <form class="password-form" action="{block name='form_new_password_actionurl'}{$urls.pages.password}{/block}" method="post">
 
-      {block name='form_new_password_header'}
-        <header>
-          <p>{l s='Please enter the email address you used to register. You will receive a temporary link to reset your password.' d='Shop.Theme.Customeraccount'}</p>
-        </header>
-      {/block}
+    {block name='form_new_password_header'}
+      <header>
+        <p>{l s='Please enter the email address you used to register. You will receive a temporary link to reset your password.' d='Shop.Theme.Customeraccount'}</p>
+      </header>
+    {/block}
 
-      {block name='form_new_password_form_fields'}
-        <section class="form-fields">
+    {block name='form_new_password_form_fields'}
+      {if isset($smarty.post.email)}
+        {assign var=val value={$smarty.post.email|stripslashes}}
+      {else}
+        {assign var=val value=''}
+      {/if}
+      {foreach 
+        from=[
+          [
+            'type' => 'email',
+            'errors' => null,
+            'label' => {l s='Email' d='Shop.Forms.Labels'},
+            'name' => 'email',
+            'placeholder' => {l s='Email' d='Shop.Forms.Labels'},
+            'value' => {$val},
+            'maxLength' => 0,
+            'required' => 1
+          ]
+        ] 
+        item="field"
+      }
+        {block "form_field"}
+          {form_field field=$field}
+        {/block}
+      {/foreach}
+    {/block}
 
-          <label>
-            <span>{l s='Email' d='Shop.Forms.Labels'}</span>
-            <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}">
-          </label>
-
-        </section>
-      {/block}
-
-      {block name='form_new_password_footer'}
-        <footer class="form-footer">
-          <button type="submit" name="submit">
-            {l s='Send reset link' d='Shop.Theme.Actions'}
-          </button>
-        </footer>
-      {/block}
-
-    </form>
-  </section>
-{/block}
-
-{block name='page_footer'}
-  <ul>
-    <li><a href="{$urls.pages.authentication}">{l s='Back to Login' d='Shop.Theme.Actions'}</a></li>
-  </ul>
+    {block name='form_new_password_footer'}
+      <footer class="form-footer">
+        <a 
+          class="button icon-action-undo"
+          href="{$urls.pages.authentication}"
+          >{l s='Back to Login' d='Shop.Theme.Actions'}
+        </a>
+        <button 
+          class="icon-paper-plane" 
+          type="submit" 
+          name="submit"
+          >{l s='Send reset link' d='Shop.Theme.Actions'}
+        </button>
+      </footer>
+    {/block}
+    
+  </form>
 {/block}

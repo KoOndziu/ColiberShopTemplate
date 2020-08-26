@@ -42,7 +42,7 @@
       <footer class="form-footer">
         <input type="hidden" name="submitCreate" value="1">
         {block "form_buttons"}
-          <button data-link-action="save-customer" type="submit">
+          <button class="icon-pencil" data-link-action="save-customer" type="submit">
             {l s='Save' d='Shop.Theme.Actions'}
           </button>
         {/block}

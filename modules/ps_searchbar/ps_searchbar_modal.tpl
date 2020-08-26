@@ -1,7 +1,7 @@
 {extends file='_partials/modal.tpl'}
 
 {block name='modal_attr'}
-	{assign var="modal" value=['id' => 'ps-searchbar-modal', 'class' => 'modal-top', 'data-search-controller-url' => $search_controller_url]}
+	{assign var="modal" value=['id' => 'ps-searchbar-modal', 'class' => 'modal-top']}
 {/block}
 
 {block name='modal_title'}

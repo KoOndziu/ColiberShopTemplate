@@ -1,8 +1,8 @@
 {block name='cart_voucher'}
   {if $cart.vouchers.allowed}
     <div class="cart-voucher">
-			<ul class="grid promos js-discount">
-				<li>
+			<section class="grid promos js-discount">
+				<article>
 					<header>
 						<span class="h2">{l s='Have a promo code?' d='Shop.Theme.Checkout'}</span>
 					</header>
@@ -75,9 +75,9 @@
               >{$discount.code}
             </a>
 						<p>{$discount.description}</p>
-					</li>
+					</article>
 				{/foreach}
-			</ul>
+			</section>
 
     </div>
   {/if}

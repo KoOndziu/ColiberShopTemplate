@@ -1,0 +1,18 @@
+.product-flags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: opacity .5s;
+
+  li {
+    margin-bottom: .3em;
+    background: var(--color-blck);
+    color: var(--color-whte);
+    border-radius: 2em;
+    padding: .3em .8em;
+    font-size: .8em;
+  }
+}

@@ -1,0 +1,32 @@
+h1, .h1,
+h2, .h2,
+h3, .h3, 
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin: 1rem 0;
+	display: flex;
+	align-items: center;
+  line-height: 1em;
+  font-family: 'Aracne Ultra Condensed', 'Didact Gothic', Arial;
+}
+h1, .h1 { font-size: 2.6rem; }
+h2, .h2 { font-size: 2.0rem; }
+h3, .h3 { font-size: 1.7rem; }
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: #F7F7F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Didact Gothic";
+}
+
+main {
+  padding: 1rem;
+  text-align: center;
+  background-color: #fff;
+}

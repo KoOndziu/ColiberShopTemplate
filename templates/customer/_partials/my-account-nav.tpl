@@ -1,4 +1,4 @@
-<ul class="link-list {$list_type}">
+<ul class="{$list_type}">
 
 		<li class="{if $page.page_name eq 'my-account'}active{/if}">
 			<a 

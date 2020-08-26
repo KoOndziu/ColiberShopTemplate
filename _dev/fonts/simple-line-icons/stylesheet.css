@@ -213,7 +213,8 @@
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
-  text-transform: none;
+  text-transform: none !important;
+  text-decoration: none !important;
   line-height: 1;
 	color: inherit;	
   /* Better Font Rendering =========== */

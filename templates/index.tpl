@@ -24,14 +24,12 @@
  *}
 {extends file='page.tpl'}
 
-{block name='aside'}
-  {hook h='displayHomeAside'}
-{/block}
+{block name='aside'}{hook h='displayHomeAside'}{/block}
 
-{block name='page_header_container'}
-{/block}
+{block name='page_header_container'}{/block}
+{block name='breadcrumb'}{/block}
 
-{block name='page_content'}
+{block name='page_content_container'}
   {block name='hook_home'}
     {$HOOK_HOME nofilter}
   {/block}
