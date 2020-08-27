@@ -16,14 +16,17 @@
   {if $msg}
     <p class="notification {if $nw_error}notification-error{else}notification-success{/if}">{$msg}</p>
   {/if}
-  <form class="form-normal" action="{$urls.pages.index}" method="post">
+  <form action="{$urls.pages.index}" method="post">
     {if $conditions}
       <p>{$conditions}</p>
     {/if}
     <input type="hidden" name="action" value="0" />
-    <div class="input-group">
-      <input type="text" name="email" value="{$value}" placeholder="{l s='Your e-mail' d='Modules.Emailsubscription.Shop'}" />
-      <button class="icon-like" type="submit" name="submitNewsletter">OK</button>
+    <div class="form-group">
+      <label for="pses-email">{l s='Your e-mail' d='Modules.Emailsubscription.Shop'}</label>
+      <div class="input-group">
+        <input id="pses-email" type="text" name="email" value="{$value}"/>
+        <button class="icon-like" type="submit" name="submitNewsletter">OK</button>
+      </div>
     </div>
     {hook h='displayGDPRConsent' id_module=$id_module}
   </form>

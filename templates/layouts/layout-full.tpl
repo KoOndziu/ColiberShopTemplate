@@ -34,7 +34,7 @@
           <ul class="sidenav">
             {block name='sidenav'}{/block}
             <li><span class='button icon-bulb toggle-dark-mode' title="dark mode"></span></li>
-            <li><a href="#" class="button submit icon-arrow-up-circle"></a></li>
+            <li><a href="#" class="button submit icon-arrow-up-circle" aria-label="To top"></a></li>
           </ul>
         {/block}
 

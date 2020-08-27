@@ -22,8 +22,8 @@ export default class SlickSlider {
 			}
 
 			self.slick({
-				prevArrow:"<button class=\"icon-arrow-left slick-prev slick-arrow\"></button>",
-				nextArrow:"<button class=\"icon-arrow-right slick-next slick-arrow\"></button>",
+				prevArrow:"<button aria-label=\"Before slide\" class=\"icon-arrow-left slick-prev slick-arrow\"></button>",
+				nextArrow:"<button aria-label=\"Next slide\" class=\"icon-arrow-right slick-next slick-arrow\"></button>",
 				centerPadding: '0',
 				accessibility: true,
 				infinite: true,
@@ -47,8 +47,8 @@ export default class SlickSlider {
 			}
 
 			self.slick({
-				prevArrow:"<button class=\"icon-arrow-left slick-prev slick-arrow\"></button>",
-				nextArrow:"<button class=\"icon-arrow-right slick-next slick-arrow\"></button>",
+				prevArrow:"<button aria-label=\"Before slide\" class=\"icon-arrow-left slick-prev slick-arrow\"></button>",
+				nextArrow:"<button aria-label=\"Next slide\" class=\"icon-arrow-right slick-next slick-arrow\"></button>",
 				centerPadding: '0',
 				accessibility: true,
 				infinite: true,

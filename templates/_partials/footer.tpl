@@ -30,7 +30,12 @@
     <div class="copyright-link">
       <p>
         {l s='KoliberShop © %year%<br>by' sprintf=['%year%' => 'Y'|date] d='Shop.Theme.Global'} 
-        <a class="_blank" href="https://facebook.com/KoOndziu97" target="_blank">Ko_Ondziu</a>
+        <a
+          href="https://facebook.com/KoOndziu97" 
+          target="_blank"
+          rel=”noopener noreferrer”
+          >Ko_Ondziu
+        </a>
       </p>
     </div>
   {/block}

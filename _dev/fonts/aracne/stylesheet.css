@@ -6,6 +6,7 @@
         url('AracneRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne';
@@ -13,6 +14,7 @@
         url('AracneRegularItalic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne';
@@ -20,6 +22,7 @@
         url('AracneLight.woff') format('woff');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne';
@@ -27,6 +30,7 @@
         url('AracneLightItalic.woff') format('woff');
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
 }
 
 
@@ -37,6 +41,7 @@
         url('AracneCondensedRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne Condensed';
@@ -44,6 +49,7 @@
         url('AracneCondensedRegularItalic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne Condensed';
@@ -51,6 +57,7 @@
         url('AracneCondensedLight.woff') format('woff');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne Condensed';
@@ -58,6 +65,7 @@
         url('AracneCondensedLightItalic.woff') format('woff');
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
 }
 
 */
@@ -68,6 +76,7 @@
         url('AracneUltraCondensedRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }/*
 @font-face {
     font-family: 'Aracne Ultra Condensed';
@@ -75,6 +84,7 @@
         url('AracneUltraCondensedRegItalic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne Ultra Condensed';
@@ -82,6 +92,7 @@
         url('AracneUltraCondensedLight.woff') format('woff');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Aracne Ultra Condensed';
@@ -89,4 +100,5 @@
         url('AracneUltraCondensedLightItalic.woff') format('woff');
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
 }*/

@@ -26,7 +26,7 @@
           <div class="headslide-thumb">
             <img 
               class="" 
-              src="{$slide.image_url}" 
+              data-lazy="{$slide.image_url}" 
               alt="{$slide.legend|escape}"
               title="{$slide.legend|escape}"
              >
@@ -36,7 +36,7 @@
             {if $slide.description}<div class="headslide-description slide-description check-text">{$slide.description nofilter}</div>{/if}
             {if $slide.legend}<span class="a headslide-legend slide-legend check-text see-more">{$slide.legend}</span>{/if}
           </div>
-          <a href="{$slide.url}"></a>
+          <a href="{$slide.url}" aria-label="{$slide.title}"></a>
         </div>
       {/foreach}
     {/for}

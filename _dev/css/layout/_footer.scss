@@ -11,6 +11,8 @@ body > footer {
 
     div {      
       a {
+        padding: var(--size-pdng) 0;
+        display: block;
         text-decoration: none;
         color: inherit;
         &:hover {
@@ -32,6 +34,18 @@ body > footer {
     
     .copyright-link a {
       text-decoration: none;
+    }
+  }
+}
+
+@media screen and (min-width: $brkp-s-devices) {
+  body > footer {
+    .footer-grid {
+      div {      
+        a {
+          padding: 0;
+        }
+      }
     }
   }
 }
